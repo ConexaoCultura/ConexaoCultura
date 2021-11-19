@@ -56,7 +56,7 @@
 }
 
 .div_opcao > input:checked + label {
-    border: 1px solid #97f0b5;
+    border: 2px solid #97f0b5;
     background-color: #f5fffa;
 }
 
@@ -71,10 +71,12 @@
 
 .card-body.dois {
     display: grid;
-    grid-template-columns: repeat(5, 5fr);
+    grid-template-columns: repeat(5, 4fr);
     justify-content: center;
     align-items: center;
     justify-items: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .quest {
@@ -103,9 +105,44 @@
 }
 
 /* ===== MEDIA QUERY ===== */
+@media screen and (max-width: 1580px) {
+    .card-body.dois {
+        grid-template-columns: repeat(4, 4fr);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .card.text-center {
+        width: 25%;
+    }
+}
+
 @media screen and (max-width: 991px) {
+    .questionario {
+        display: inline;
+    }
+    
     .card {
-        width: 75%;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+    }
+
+    .card.text-center {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card-body.dois {
+        grid-template-columns: repeat(10, 4fr);
+        padding: 0;
+    }
+
+    .quest {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
     
     .opcao {
@@ -120,6 +157,36 @@
 @media screen and (max-width: 770px) {
     .card-title {
         margin-left: 1rem;
+    }
+}
+
+@media screen and (max-width: 715px) {
+    .card-body.dois {
+        grid-template-columns: repeat(7, 4fr);
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .div_opcao > label {
+        height: 4rem;
+    }
+}
+
+@media screen and (max-width: 485px) {
+    .card-body.dois {
+        grid-template-columns: repeat(6, 4fr);
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .card-body.dois {
+        grid-template-columns: repeat(5, 4fr);
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .card-body.dois {
+        grid-template-columns: repeat(4, 4fr);
     }
 }
 
