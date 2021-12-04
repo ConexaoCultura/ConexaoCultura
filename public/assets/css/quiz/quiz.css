@@ -91,13 +91,22 @@
   height: 4rem;
 }
 
+/* .active {
+    border: 3px #353535 solid;
+    } */
+
 .quest.cinco,
 .quest.dez,
 .quest.quinze {
   margin-right: 0;
 }
 
-.quest > p {
+.quest > a {
+  text-decoration: none;
+  color: #353535;
+}
+
+.quest > a > p {
   margin-bottom: 0;
   height: 100%;
   display: flex;
