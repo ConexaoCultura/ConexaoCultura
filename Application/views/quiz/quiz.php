@@ -52,37 +52,39 @@ include_once '../../core/conex.php';
         <div class="questionario">
             <div class="card">
                 <div class="card-header">
-                    Pergunta 
+                    Pergunta
                 </div>
                 <div class="card-body">
-                    <?php
+                    <p class="title_opcoes">
+                        <?php
                         //Pesquisar pergunta 
-                        $query_questao = "SELECT id_Questoes, conteudo FROM questoes ORDER BY RAND() LIMIT 1";
+                        $query_questao = "SELECT id_questao, conteudo FROM questao ORDER BY RAND() LIMIT 1";
                         $result_questao = $conn->prepare($query_questao);
                         $id_questoes = 0;
                         //$result_questao->execute();
-                        
-                        foreach ($conn->query($query_questao) as $row) { 
-                            echo utf8_encode($row['conteudo']);
-                            $id_questoes = $row['id_Questoes'];
+
+                        foreach ($conn->query($query_questao) as $row) {
+                            echo $row['conteudo'];
+                            $id_questoes = $row['id_questao'];
                         }
-                        
-                    ?>
+
+                        ?>
+                    </p>
                     <div class="opcoes">
                         <?php
-                            $query_alternativa = "SELECT * FROM Alternativas WHERE conteudo = " . $id_questoes;
-                            $result_alternativa = $conn->prepare($query_alternativa);
+                        $query_alternativa = "SELECT * FROM alternativa WHERE id_questao = " . $id_questoes;
+                        $result_alternativa = $conn->prepare($query_alternativa);
 
-                            foreach ($conn->query($query_alternativa) as $row) { 
-                               
-                            
+                        foreach ($conn->query($query_alternativa) as $row) {
+
+
                         ?>
-                        <div class="div_opcao">
-                            <input type="radio" class="opcao Um" id="um" name="quest1" value="Apreciar a natureza">
-                            <label for="um"><?php echo utf8_encode($row['enunciado']); ?></label>
-                        </div>
+                            <div class="div_opcao">
+                                <input type="radio" class="opcao Um" id="um" name="quest1" value="<?php echo $row['enunciado']; ?>">
+                                <label for="um"><?php echo $row['enunciado']; ?></label>
+                            </div>
                         <?php
-                            }
+                        }
                         ?>
                     </div>
                 </div>
