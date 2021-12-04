@@ -67,7 +67,6 @@ include_once '../../core/conex.php';
                             echo $row['conteudo'];
                             $id_questoes = $row['id_questao'];
                         }
-
                         ?>
                     </p>
                     <div class="opcoes">
@@ -95,49 +94,79 @@ include_once '../../core/conex.php';
                 </div>
                 <div class="card-body dois">
                     <div class="quest um">
-                        <p>1</p>
+                        <a href="">
+                            <p>1</p>
+                        </a>
                     </div>
                     <div class="quest dois">
-                        <p>2</p>
+                        <a href="">
+                            <p>2</p>
+                        </a>
                     </div>
                     <div class="quest tres">
-                        <p>3</p>
+                        <a href="">
+                            <p>3</p>
+                        </a>
                     </div>
                     <div class="quest quatro">
-                        <p>4</p>
+                        <a href="">
+                            <p>4</p>
+                        </a>
                     </div>
                     <div class="quest cinco">
-                        <p>5</p>
+                        <a href="">
+                            <p>5</p>
+                        </a>
                     </div>
                     <div class="quest seis">
-                        <p>6</p>
+                        <a href="">
+                            <p>6</p>
+                        </a>
                     </div>
                     <div class="quest sete">
-                        <p>7</p>
+                        <a href="">
+                            <p>7</p>
+                        </a>
                     </div>
                     <div class="quest oito">
-                        <p>8</p>
+                        <a href="">
+                            <p>8</p>
+                        </a>
                     </div>
                     <div class="quest nove">
-                        <p>9</p>
+                        <a href="">
+                            <p>9</p>
+                        </a>
                     </div>
                     <div class="quest dez">
-                        <p>10</p>
+                        <a href="">
+                            <p>10</p>
+                        </a>
                     </div>
-                    <div class="quest once">
-                        <p>11</p>
+                    <div class="quest onze">
+                        <a href="">
+                            <p>11</p>
+                        </a>
                     </div>
                     <div class="quest doze">
-                        <p>12</p>
+                        <a href="">
+                            <p>12</p>
+                        </a>
                     </div>
                     <div class="quest treze">
-                        <p>13</p>
+                        <a href="">
+                            <p>13</p>
+                        </a>
                     </div>
                     <div class="quest catorze">
-                        <p>14</p>
+                        <a href="">
+                            <p>14</p>
+                        </a>
                     </div>
                     <div class="quest quinze">
-                        <p>15</p>
+                        <a href="">
+                            <p>15</p>
+                        </a>
                     </div>
                 </div>
                 <div class="card-footer text-muted">
@@ -188,6 +217,7 @@ include_once '../../core/conex.php';
         </section>
     </footer>
 
+    <script src="../../../public/assets/js/quiz/quiz.js"></script>
     <!-- Bootstrap-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
