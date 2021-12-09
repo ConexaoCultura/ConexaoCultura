@@ -16,16 +16,13 @@
 .col {
     display: grid;
     grid-template-columns: repeat(3, 3fr);
+    grid-gap: 1.5rem;
 }
 
 .my-0.fw-normal {
     text-transform: uppercase;
     font-family: "Poppins", sans-serif;
     text-align: center;
-}
-
-.card {
-    margin-left: 1rem;
 }
 
 .card-body {
@@ -186,42 +183,6 @@ span {
 
 @media screen and (max-width: 297px) {
     .card-body {
-        height: 51rem;
-    }
-}
-
-@media screen and (max-width: 292px) {
-    .card-body {
-        height: 53rem;
-    }
-}
-
-@media screen and (max-width: 291px) {
-    .card-body {
-        height: 54rem;
-    }
-}
-
-@media screen and (max-width: 290px) {
-    .card-body {
-        height: 55rem;
-    }
-}
-
-@media screen and (max-width: 284px) {
-    .card-body {
-        height: 57rem;
-    }
-}
-
-@media screen and (max-width: 282px) {
-    .card-body {
-        height: 58rem;
-    }
-}
-
-@media screen and (max-width: 281px) {
-    .card-body {
-        height: 59rem;
+        height: 50rem;
     }
 }
