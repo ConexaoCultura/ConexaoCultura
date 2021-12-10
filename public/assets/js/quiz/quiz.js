@@ -1,5 +1,2 @@
-function click() {
-    document.querySelector("opcao")
-}
-
-console.log(click)
+let click = document.querySelectorAll(".quest");
+click.forEach(click);
