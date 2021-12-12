@@ -1,3 +1,9 @@
+<?php
+    include_once '../../core/conex.php';
+    error_reporting(E_PARSE);
+    if($_POST['questionario'] == -1)
+        header("Location: ../quiz/quiz.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -50,68 +56,35 @@
         <h2 class="titulo">Roteiro</h2>
         <div class="roteiro">
             <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Aquário de São Paulo</h4>
+            <?php 
+                    $alternativa = $_POST['questionario'];
+                    $query = "SELECT * FROM roteiro WHERE alternativa = ".$alternativa;
+                    $result = $conn->prepare($query);
+                    foreach ($conn->query($query) as $row) {
+                        
+                    
+                ?>
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal"><?php echo $row['pontos_turisticos']?></h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="../../../public/assets/img/roteiro/ursinho.jpg" alt="Imagem do Evento">
+                            </h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li><span>Endereço:</span></li>
+                                <li> <?php echo $row['endereco'] ?>
+                                </li>
+                                <li class="descricao"><span>Descrição:</span></li>
+                                <li>
+                                    <?php echo $row['informacoes'] ?>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <img src="../../../public/assets/img/roteiro/ursinho.jpg" alt="Imagem do Evento">
-                        </h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li><span>Endereço:</span></li>
-                            <li>R. Huet Bacelar, 407 - Vila São José, São Paulo - SP, 04275-000
-                            </li>
-                            <li class="descricao"><span>Descrição:</span></li>
-                            <li>
-                                Aquário de São Paulo é um oceanário localizado no distrito do
-                                Ipiranga, zona sudeste da cidade de São Paulo, Brasil. Foi inaugurado no dia 6 de
-                                julho de 2006, como o primeiro Aquário Temático da América Latina.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card mb-4 rounded-3 shadow-sm">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Hopi Hari</h4>
-                    </div>
-                    <div class="card-body">
-                        <img src="../../../public/assets/img/roteiro/hopihari.jpg" alt="Imagem do Evento">
-                        </h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li><span>Endereço:</span></li>
-                            <li>Rod. dos Bandeirantes, km 72 - Moinho, Vinhedo - SP, 13288-130
-                            </li>
-                            <li class="descricao"><span>Descrição:</span></li>
-                            <li>
-                                Com 760 mil metros quadrados, é considerado um dos maiores parques de diversão da
-                                América Latina e foi projetado como um país fictício, com presidente, capital,
-                                idioma próprio, entre outras características, com seus funcionários sendo os
-                                habitantes.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card mb-4 rounded-3 shadow-sm">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Ilhabela</h4>
-                    </div>
-                    <div class="card-body">
-                        <img src="../../../public/assets/img/roteiro/ilhabela.jpg" alt="Imagem do Evento">
-                        </h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li><span>Endereço:</span></li>
-                            <li>Município em Ilhabela, São Paulo</li>
-                            <li class="descricao"><span>Descrição:</span></li>
-                            <li>
-                                Ilhabela é um dos únicos municípios–arquipélagos marinhos brasileiros e é localizado no
-                                litoral norte do estado de São Paulo. O município é formado pela sede e pelos distritos
-                                de Cambaquara e Paranabi, o arquipélago é composto por 19 ilhas, ilhotes e lajes.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <?php 
+                    }
+                ?> 
             </div>
         </div>
     </main>
