@@ -19,7 +19,7 @@
 
 .mensagem h1 {
   font-weight: 700;
-  font-size: 70px;
+  font-size: 65px;
 }
 
 .mensagem p {
@@ -38,7 +38,7 @@
 
 /* eventos */
 .eventos {
-  height: 69.43rem;
+  /* height: 69.43rem; */
   margin-left: 24rem;
 }
 
@@ -53,12 +53,16 @@
   font-family: "Poppins", sans-serif;
   font-size: 19px;
   color: #454545;
-  margin-left: 2rem;
+  margin: 0 0 2rem 2rem;
 }
 
-/* exibicao de enventos */
+/* exibicao de eventos */
 .detalhes {
   width: 48rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 4rem;
+  height: 100%;
 }
 
 .detalhesEventos {
@@ -77,6 +81,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  visibility: visible;
 }
 
 .eventoDois,
@@ -88,7 +93,6 @@
 .imgEvento {
   display: flex;
   align-items: center;
-  margin-left: 25px;
 }
 
 .imgEvento img {
@@ -153,7 +157,15 @@
   background: #5cced6;
   border: none;
   border-radius: 10px;
-  margin-top: 46px;
+}
+
+.vermais_none {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.detalhes > div:nth-child(5) {
+  margin-top: -4rem;
 }
 
 /* ===== MEDIA QUERY ===== */
@@ -314,7 +326,7 @@
 
 @media screen and (max-width: 574px) {
   .mensagem h1 {
-    font-size: 60px;
+    font-size: 55px;
   }
 
   .mensagem p {
@@ -374,7 +386,7 @@
   }
 
   .mensagem h1 {
-    font-size: 50px;
+    font-size: 45px;
   }
 
   .mensagem p {
