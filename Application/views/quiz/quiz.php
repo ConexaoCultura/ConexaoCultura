@@ -19,6 +19,8 @@
     <title>Conexão Cultura</title>
     <!-- SCRIPT -->
     <script src="../../../public/assets/js/quiz/quiz.js"></script>
+    <meta http-equiv="cache-control" content="max-age=0" />
+    
 </head>
 
 <body>
@@ -34,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../views/home/index.html"><i class="fas fa-home"></i>Home</a>
+                        <a class="nav-link" href="../../views/home/index.php"><i class="fas fa-home"></i>Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-user"></i>Perfil</a>
@@ -43,7 +45,7 @@
                         <a class="nav-link" href="#"><i class="fas fa-map-signs"></i>Mapa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Roteiro</a>
+                        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Quiz</a>
                     </li>
                 </ul>
             </div>
@@ -70,14 +72,12 @@
 
                             foreach ($conn->query($query_questao) as $row) {
                                 array_push($questoes,$row);
-                                
                             }
                             $currentQuestion;
 
                             $_POST['question'] == "" ? ($currentQuestion = 0) : ($currentQuestion = $_POST['question']);
 
                             echo($questoes[$currentQuestion]["conteudo"]);
-
                         ?>
                     </p>
                     <div class="opcoes">
@@ -95,18 +95,9 @@
                         ?> 
                             <div  class="div_opcao">
                                 <button onclick="select(<?php echo $alternativa[0]; ?>, <?php echo $currentQuestion?>)" id="alternativa" >
-                                  <?php echo $alternativa["enunciado"] ?>
+                                    <?php echo $alternativa["enunciado"] ?>
+                                </button>
                             </div>
-
-                            <!-- <button onclick="select(<?php echo $alternativa[0]; ?>)" class="div_opcao"  id="alternativa" name="escolha"  value=<?php echo $alternativa[0]; ?> >
-                                <label for="alternativa"><?php echo $alternativa["enunciado"] ?></label><br> -->
-
-                            
-                          <!-- <div class="div_opcao">
-                        //         <input type="radio" value=<?php echo $alternativa[0]; ?>  class="opcao " id="um" name="alternativa"> 
-                        //             <label  for="um"></label>
-                                
-                        //     </div> -->
                          <?php 
                             }
                         ?>
@@ -208,31 +199,7 @@
                         Finalizar</button>
                     </div> 
                 </form>
-                    <?php
-                        
-                        // $x = "<script> document.write(respostas) </script>";
-                        // echo $x;
-                        // if($currentQuestion==14)
-                        //     echo("
-                        //         <form action='../roteiro/roteiro.php' method='post'>
-                        //             <div class='button'>
-                        //                 <button type='submit' name='questionario' value='".$x."'class='botao' type='button'>
-                        //                 Finalizar</button>
-                        //             </div> 
-                        //         </form>
-                        //     ");
-                    ?>
 
-
-                            <!-- echo("
-                                <form action='../roteiro/roteiro.php' method='post'>
-                                    <div class='button'>
-                                        <button type='submit' name='questionario' value=".$x." class='botao' type='button'>
-                                        Finalizar</button>
-                                    </div> 
-                                </form>
-                               
-                            "); -->
                 <div class="card-footer text-muted">
                     Conexão Cultura
                 </div>
@@ -258,7 +225,7 @@
                         <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.html">Home</a></h6>
                         <p><a href="#!" class="text-reset">Perfil</a></p>
                         <p><a href="#!" class="text-reset">Mapa</a></p>
-                        <p><a href="#!" class="text-reset">Roteiro</a></p>
+                        <p><a href="#!" class="text-reset">Quiz</a></p>
                     </div>
 
                     <!-- Grid column -->

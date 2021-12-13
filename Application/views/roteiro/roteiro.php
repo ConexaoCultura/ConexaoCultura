@@ -22,7 +22,7 @@
     <title>Conexão Cultura</title>
 </head>
 
-<body>
+<body class="body">
     <!-- NAVIGATION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../views/home/index.html"><i class="fas fa-home"></i>Home</a>
+                        <a class="nav-link" href="../../views/home/index.php"><i class="fas fa-home"></i>Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-user"></i>Perfil</a>
@@ -45,7 +45,7 @@
                         <a class="nav-link" href="#"><i class="fas fa-map-signs"></i>Mapa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Roteiro</a>
+                        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Quiz</a>
                     </li>
                 </ul>
             </div>
@@ -61,15 +61,13 @@
                     $query = "SELECT * FROM roteiro WHERE alternativa = ".$alternativa;
                     $result = $conn->prepare($query);
                     foreach ($conn->query($query) as $row) {
-                        
-                    
                 ?>
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
                             <h4 class="my-0 fw-normal"><?php echo $row['pontos_turisticos']?></h4>
                         </div>
                         <div class="card-body">
-                            <img src="../../../public/assets/img/roteiro/ursinho.jpg" alt="Imagem do Evento">
+                            <img src="<?php echo $row['imagem']?>" alt="Imagem do Evento">
                             </h1>
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li><span>Endereço:</span></li>
@@ -107,7 +105,7 @@
                         <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.html">Home</a></h6>
                         <p><a href="#!" class="text-reset">Perfil</a></p>
                         <p><a href="#!" class="text-reset">Mapa</a></p>
-                        <p><a href="#!" class="text-reset">Roteiro</a></p>
+                        <p><a href="#!" class="text-reset">Quiz</a></p>
                     </div>
 
                     <!-- Grid column -->
@@ -142,6 +140,8 @@
         crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3eecc79a6a.js" crossorigin="anonymous"></script>
+     <!-- JavaScript -->
+    <script src="../../../public/assets/js/main.js"></script>
 </body>
 
 </html>

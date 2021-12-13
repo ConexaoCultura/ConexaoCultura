@@ -1,6 +1,6 @@
 <?php
-include_once '../../core/conex.php';
-session_start();
+    include_once '../../core/conex.php';
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -19,7 +19,8 @@ session_start();
     <title>Conexão Cultura</title>
 </head>
 
-<body>
+
+<body class="body">
     <!-- NAVIGATION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,7 +42,7 @@ session_start();
                             <a class="nav-link" href="#"><i class="fas fa-map-signs"></i>Mapa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Roteiro</a>
+                            <a onclick="location.reload(true)" class="nav-link" href="../quiz/quiz.php"><i class="fas fa-map-marked-alt"></i>Quiz</a>
                         </li>
                     </ul>
                 </div>
@@ -51,8 +52,8 @@ session_start();
 
     <main>
         <?php
-        $query_usuario = "SELECT u.id_usuario, u.nome_completo FROM usuario u where u.id_usuario = 1";
-        $usuario = mysqli_fetch_array($conn->query($query_usuario));
+            $query_usuario = "SELECT u.id_usuario, u.nome_completo FROM usuario u where u.id_usuario = 1";
+            $usuario = mysqli_fetch_array($conn->query($query_usuario));
         ?>
         <div class="banner">
             <div class="mensagem">
@@ -72,13 +73,12 @@ session_start();
                 <div class="detalhes">
 
                     <?php
-                    $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e ORDER BY RAND() LIMIT 3";
-                    $result_evento = $conn->prepare($query_evento);
+                        $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e ORDER BY RAND() LIMIT 3";
+                        $result_evento = $conn->prepare($query_evento);
 
-                    $id_evento = [];
+                        $id_evento = [];
                     foreach ($conn->query($query_evento) as $row) {
                         array_push($id_evento, $row['id_evento']);
-
                     ?>
                         <div class="eventoUm">
                             <div class="imgEvento">
@@ -93,17 +93,17 @@ session_start();
                                 </div>
                                 <div class="saberMais">
                                     <div class="publicacao">
-                                        <p>Publicado em <?php echo date('d/m/Y'); ?>
-                                        </p> <!-- alterar uma coisa aqui depois, teste  -->
-                                    </div>
-                                    <div class="botaoSaibaMais">
-                                        <a href="../../views/evento/evento.php">
-                                            <?php
-                                            $idEvento = $row['id_evento'];
-                                            $_SESSION['Evento'] = $idEvento;
+                                        <p>Publicado em 
+                                            <?php 
+                                                $date = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
+                                                $datecorrect = $date->format('d/m/Y'); echo $datecorrect; 
                                             ?>
-                                            <input type="button" value="SAIBA MAIS"></a>
+                                        </p>
                                     </div>
+                                    <form action="../evento/evento.php" method="post" class="botaoSaibaMais">
+                                        <label for="evento">Saiba Mais</label>
+                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>></button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -114,13 +114,12 @@ session_start();
                         <input class="verMais vermais" type="button" value="VER MAIS">
                     </div>
                     <?php
-                    $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e  WHERE e.id_evento != '$id_evento[0]' and e.id_evento != '$id_evento[1]' and e.id_evento != '$id_evento[2]' ORDER BY RAND()";
-                    $result_evento = $conn->prepare($query_evento);
+                        $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e  WHERE e.id_evento != '$id_evento[0]' and e.id_evento != '$id_evento[1]' and e.id_evento != '$id_evento[2]' ORDER BY RAND()";
+                        $result_evento = $conn->prepare($query_evento);
 
-                    $id_evento = [];
-                    foreach ($conn->query($query_evento) as $row) {
-                        array_push($id_evento, $row['id_evento']);
-
+                        $id_evento = [];
+                        foreach ($conn->query($query_evento) as $row) {
+                            array_push($id_evento, $row['id_evento']);
                     ?>
                         <div class="eventoUm vermais_none vermais">
                             <div class="imgEvento">
@@ -135,17 +134,17 @@ session_start();
                                 </div>
                                 <div class="saberMais">
                                     <div class="publicacao">
-                                        <p>Publicado em <?php echo date('d/m/Y'); ?>
+                                        <p>Publicado em 
+                                            <?php 
+                                                $date = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
+                                                $datecorrect = $date->format('d/m/Y'); echo $datecorrect; 
+                                            ?>
                                         </p>
                                     </div>
-                                    <div class="botaoSaibaMais">
-                                        <?php
-                                        $idEvento = $row['id_evento'];
-                                        $_SESSION['Evento'] = $idEvento;
-                                        ?>
-                                        <a href="../../views/evento/evento.php">
-                                            <input type="button" value="SAIBA MAIS"></a>
-                                    </div>
+                                    <form action="../evento/evento.php" method="post" class="botaoSaibaMais">
+                                        <label for="evento">Saiba Mais</label>
+                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>></button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -156,8 +155,114 @@ session_start();
                         <input class="verMais vermais vermais_none" type="button" value="VER MENOS">
                     </div>
                 </div>
-                <div class="calendario">
-
+                
+                <div class="calendar">
+                    <div class="month-indicator">
+                        <time datetime="2021-12">Dezembro</time>
+                    </div>
+                    <div class="day-of-week">
+                    <div>Dom</div>
+                    <div>Seg</div>
+                    <div>Ter</div>
+                    <div>Qua</div>
+                    <div>Qui</div>
+                    <div>Sex</div>
+                    <div>Sab</div>
+                </div>
+                <div class="date-grid">
+                    <button>
+                        <time datetime="2021-12-01">1</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-02">2</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-03">3</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-04">4</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-05">5</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-06">6</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-07">7</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-08">8</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-09">9</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-10">10</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-11">11</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-12">12</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-13">13</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-14">14</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-15">15</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-16">16</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-17">17</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-18">18</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-19">19</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-20">20</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-21">21</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-22">22</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-23">23</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-24">24</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-25">25</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-26">26</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-27">27</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-28">28</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-29">29</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-30">30</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-31">31</time>
+                    </button>
                 </div>
             </div>
         </div>
@@ -181,7 +286,7 @@ session_start();
                         <h6 class="text-uppercase fw-bold mb-4"><a href="#">Home</a></h6>
                         <p><a href="#!" class="text-reset">Perfil</a></p>
                         <p><a href="#!" class="text-reset">Mapa</a></p>
-                        <p><a href="#!" class="text-reset">Roteiro</a></p>
+                        <p><a href="#!" class="text-reset">Quiz</a></p>
                     </div>
 
                     <!-- Grid column -->
@@ -210,9 +315,9 @@ session_start();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3eecc79a6a.js" crossorigin="anonymous"></script>
-    <!-- JS -->
-    <script src="../../../public/assets/js/quiz/quiz.js"></script>
+    <!-- JavaScript -->
     <script src="../../../public/assets/js/home/home.js"></script>
+    <script src="../../../public/assets/js/main.js"></script>
 </body>
 
 </html>
