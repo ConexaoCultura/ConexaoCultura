@@ -1,188 +1,183 @@
 .titulo {
-    font-size: 40px;
-    font-family: "Josefin Sans", sans-serif;
-    margin-top: 2rem;
-    text-align: center;
+  font-size: 40px;
+  font-family: "Josefin Sans", sans-serif;
+  margin-top: 2rem;
+  text-align: center;
 }
 
 .roteiro {
-    padding: 2rem 6rem;
+  padding: 2rem 6rem;
 }
 
 .row {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .col {
-    display: grid;
-    grid-template-columns: repeat(3, 3fr);
-    grid-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  grid-gap: 1.5rem;
 }
 
 .my-0.fw-normal {
-    text-transform: uppercase;
-    font-family: "Poppins", sans-serif;
-    text-align: center;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 
 .card-body {
-    height: 33rem;
+  height: 33rem;
 }
 
 .card-body img {
-    width: 80%;
-    border-radius: 8px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    width: 25.44rem;
-    height: 13.75rem;
-    object-fit: cover;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  width: 25.44rem;
+  height: 13.75rem;
+  object-fit: cover;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .list-unstyled.mt-3.mb-4 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    font-family: "Poppins", sans-serif;
-    text-align: justify;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  text-align: justify;
 }
 
 span {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .descricao {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 /* ===== MEDIA QUERY ===== */
 @media screen and (max-width: 1617px) {
-    .card-body {
-        height: 35rem;
-    }
+  .card-body {
+    height: 35rem;
+  }
 }
 
 @media screen and (max-width: 1575px) {
-    .card-body img {
-        width: 80%;
-    }
+  .card-body img {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 1419px) {
-    .card-body {
-        height: 36rem;
-    }
+  .card-body {
+    height: 39rem;
+  }
 }
 
 @media screen and (max-width: 1318px) {
-    .col {
-        grid-template-columns: repeat(2, 3fr);
-    }
-}
-
-@media screen and (max-width: 980px) {
-    .card-body {
-        height: 37rem;
-    }
+  .col {
+    grid-template-columns: repeat(2, 3fr);
+  }
 }
 
 @media screen and (max-width: 936px) {
-    .col {
-        grid-template-columns: repeat(1, 3fr);
-    }
+  .col {
+    grid-template-columns: repeat(1, 3fr);
+  }
 
-    .card-body {
-        height: 29rem;
-    }
+  .card-body {
+    height: 29rem;
+  }
 }
 
 @media screen and (max-width: 822px) {
-    .card-body {
-        height: 32rem;
-    }
+  .card-body {
+    height: 32rem;
+  }
 }
 
 @media screen and (max-width: 721px) {
-    .card-body {
-        height: 34rem;
-    }
+  .card-body {
+    height: 34rem;
+  }
 }
 
 @media screen and (max-width: 665px) {
-    .roteiro {
-        padding: 2rem 4rem;
-    }
+  .roteiro {
+    padding: 2rem 4rem;
+  }
 }
 
 @media screen and (max-width: 590px) {
-    .card-body img {
-        width: 100%;
-    }
+  .card-body img {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 599px) {
-    .card-body {
-        height: 36rem;
-    }
+  .card-body {
+    height: 36rem;
+  }
 }
 
 @media screen and (max-width: 533px) {
-    .card-body {
-        height: 38rem;
-    }
+  .card-body {
+    height: 38rem;
+  }
 }
 
 @media screen and (max-width: 490px) {
-    .card-body {
-        height: 42rem;
-    }
+  .card-body {
+    height: 42rem;
+  }
 }
 
 @media screen and (max-width: 454px) {
-    .card-body {
-        height: 42rem;
-    }
+  .card-body {
+    height: 42rem;
+  }
 
-    .roteiro {
-        padding: 2rem 3rem;
-    }
+  .roteiro {
+    padding: 2rem 3rem;
+  }
 }
 
 @media screen and (max-width: 422px) {
-    .card-body {
-        height: 43rem;
-    }
+  .card-body {
+    height: 43rem;
+  }
 
-    .roteiro {
-        padding: 2rem;
-    }
+  .roteiro {
+    padding: 2rem;
+  }
 }
 
 @media screen and (max-width: 422px) {
-    .roteiro {
-        padding: 2rem 1rem;
-    }
+  .roteiro {
+    padding: 2rem 1rem;
+  }
 }
 
 @media screen and (max-width: 345px) {
-    .card-body {
-        height: 47rem;
-    }
+  .card-body {
+    height: 47rem;
+  }
 
-    .list-unstyled.mt-3.mb-4 {
-        text-align: center;
-    }
+  .list-unstyled.mt-3.mb-4 {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 306px) {
-    .card-body {
-        height: 49rem;
-    }
+  .card-body {
+    height: 49rem;
+  }
 }
 
 @media screen and (max-width: 297px) {
-    .card-body {
-        height: 50rem;
-    }
+  .card-body {
+    height: 50rem;
+  }
 }
