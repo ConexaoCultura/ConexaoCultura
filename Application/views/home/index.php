@@ -101,8 +101,9 @@
                                         </p>
                                     </div>
                                     <form action="../evento/evento.php" method="post" class="botaoSaibaMais">
-                                        <label for="evento">Saiba Mais</label>
-                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>></button>
+                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>>
+                                            <label for="evento">Saiba Mais</label>
+                                        </button>
                                     </form>
                                 </div>
                             </div>
@@ -142,8 +143,9 @@
                                         </p>
                                     </div>
                                     <form action="../evento/evento.php" method="post" class="botaoSaibaMais">
-                                        <label for="evento">Saiba Mais</label>
-                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>></button>
+                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>>
+                                            <label for="evento">Saiba Mais</label>
+                                        </button>
                                     </form>
                                 </div>
                             </div>
@@ -161,108 +163,171 @@
                         <time datetime="2021-12">Dezembro</time>
                     </div>
                     <div class="day-of-week">
-                    <div>Dom</div>
-                    <div>Seg</div>
-                    <div>Ter</div>
-                    <div>Qua</div>
-                    <div>Qui</div>
-                    <div>Sex</div>
-                    <div>Sab</div>
-                </div>
-                <div class="date-grid">
-                    <button>
-                        <time datetime="2021-12-01">1</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-02">2</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-03">3</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-04">4</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-05">5</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-06">6</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-07">7</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-08">8</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-09">9</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-10">10</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-11">11</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-12">12</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-13">13</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-14">14</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-15">15</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-16">16</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-17">17</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-18">18</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-19">19</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-20">20</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-21">21</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-22">22</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-23">23</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-24">24</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-25">25</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-26">26</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-27">27</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-28">28</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-29">29</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-30">30</time>
-                    </button>
-                    <button>
-                        <time datetime="2021-12-31">31</time>
-                    </button>
+                        <div>DOM</div>
+                        <div>SEG</div>
+                        <div>TER</div>
+                        <div>QUA</div>
+                        <div>QUI</div>
+                        <div>SEX</div>
+                        <div>SAB</div>
+                    </div>
+                    <div class="date-grid">
+                        <button>
+                            <time datetime="2021-12-01">1</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-02">2</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-03">3</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-04">4</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-05">5</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-06">6</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-07">7</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-08">8</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-09">9</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-10">10</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-11">11</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-12">12</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-13">13</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-14">14</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-15">15</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-16">16</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-17">17</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-18">18</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-19">19</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-20">20</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-21">21</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-22">22</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-23">23</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-24">24</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-25">25</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-26">26</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-27">27</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-28">28</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-29">29</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-30">30</time>
+                        </button>
+                        <button>
+                            <time datetime="2021-12-31">31</time>
+                        </button>
+                    </div>
+                    <div class="infos">
+                        <p>Quarta-feira, 15 de dezembro</p>
+                        <div class="linhaInfo"></div>
+                        <div class="infosEvento">
+                            <div class="nomeEvento">
+                                <h6>Vou Pro Sereno no Bar Templo</h6>
+                                <p>R$35,00</p>
+                            </div>
+                            <div class="horaEvento">
+                                <i class="far fa-clock"></i>
+                                <p>19:00</p>
+                            </div>
+                        </div>
+                        <p>Sexta-feira, 17 de dezembro</p>
+                        <div class="linhaInfo"></div>
+                        <div class="infosEvento">
+                            <div class="nomeEvento">
+                                <h6>Jorge e Matheus no Espaço das Américas</h6>
+                                <p>R$110,00</p>
+                            </div>
+                            <div class="horaEvento">
+                                <i class="far fa-clock"></i>
+                                <p>20:30</p>
+                            </div>
+                        </div>
+                        <div class="infosEventoDois">
+                            <div class="infosEvento">
+                                <div class="nomeEvento">
+                                    <h6>Henrique e Juliano After Lounge Bar</h6>
+                                    <p>R$50,00</p>
+                                </div>
+                                <div class="horaEvento">
+                                    <i class="far fa-clock"></i>
+                                    <p>18:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Sábado, 18 de dezembro</p>
+                        <div class="linhaInfo"></div>
+                        <div class="infosEvento">
+                            <div class="nomeEvento">
+                                <h6>Marcelo D2 Assim Tocam os Meus Tambores</h6>
+                                <p>R$60,00</p>
+                            </div>
+                            <div class="horaEvento">
+                                <i class="far fa-clock"></i>
+                                <p>22:00</p>
+                            </div>
+                        </div>
+                        <p>Domingo, 19 de dezembro</p>
+                        <div class="linhaInfo"></div>
+                        <div class="infosEvento">
+                            <div class="nomeEvento">
+                                <h6>Marcelo D2 Assim Tocam os Meus Tambores</h6>
+                                <p>R$110,00</p>
+                            </div>
+                            <div class="horaEvento">
+                                <i class="far fa-clock"></i>
+                                <p>21:00</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
