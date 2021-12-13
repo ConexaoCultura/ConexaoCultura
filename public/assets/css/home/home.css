@@ -102,6 +102,7 @@
 .imgEvento {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .imgEvento img {
@@ -109,7 +110,7 @@
   border-radius: 10px;
   width: 15.5rem;
   object-fit: cover;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
 }
 
 .descricao {
