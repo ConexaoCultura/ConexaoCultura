@@ -67,7 +67,7 @@
                             <h4 class="my-0 fw-normal"><?php echo $row['pontos_turisticos']?></h4>
                         </div>
                         <div class="card-body">
-                            <img src="../../../public/assets/img/roteiro/ursinho.jpg" alt="Imagem do Evento">
+                            <img src="<?php echo $row['imagem']?>" alt="Imagem do Evento">
                             </h1>
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li><span>Endereço:</span></li>

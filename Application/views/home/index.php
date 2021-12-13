@@ -101,8 +101,8 @@
                                         </p>
                                     </div>
                                     <form action="../evento/evento.php" method="post" class="botaoSaibaMais">
-                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>>
-                                        <label for="evento">teste</label>
+                                        <label for="evento">Saiba Mais</label>
+                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>></button>
                                     </form>
                                 </div>
                             </div>
@@ -142,9 +142,8 @@
                                         </p>
                                     </div>
                                     <form action="../evento/evento.php" method="post" class="botaoSaibaMais">
-                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>>
-                                            <label for="evento">teste</label>
-                                        </button>
+                                        <label for="evento">Saiba Mais</label>
+                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>></button>
                                     </form>
                                 </div>
                             </div>
@@ -156,8 +155,114 @@
                         <input class="verMais vermais vermais_none" type="button" value="VER MENOS">
                     </div>
                 </div>
-                <div class="calendario">
-
+                
+                <div class="calendar">
+                    <div class="month-indicator">
+                        <time datetime="2021-12">Dezembro</time>
+                    </div>
+                    <div class="day-of-week">
+                    <div>Dom</div>
+                    <div>Seg</div>
+                    <div>Ter</div>
+                    <div>Qua</div>
+                    <div>Qui</div>
+                    <div>Sex</div>
+                    <div>Sab</div>
+                </div>
+                <div class="date-grid">
+                    <button>
+                        <time datetime="2021-12-01">1</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-02">2</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-03">3</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-04">4</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-05">5</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-06">6</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-07">7</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-08">8</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-09">9</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-10">10</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-11">11</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-12">12</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-13">13</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-14">14</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-15">15</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-16">16</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-17">17</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-18">18</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-19">19</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-20">20</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-21">21</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-22">22</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-23">23</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-24">24</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-25">25</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-26">26</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-27">27</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-28">28</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-29">29</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-30">30</time>
+                    </button>
+                    <button>
+                        <time datetime="2021-12-31">31</time>
+                    </button>
                 </div>
             </div>
         </div>
