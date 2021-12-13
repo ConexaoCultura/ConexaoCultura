@@ -115,7 +115,7 @@
   margin-bottom: 0;
   height: 100%;
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px #353535 solid;
   border-radius: 10px;
   display: flex;
@@ -153,6 +153,11 @@
   border: 1px solid #7ddaff;
   background-color: hsla(197, 100%, 69%, 0.22);
   margin-bottom: 1rem;
+}
+
+.checked {
+  border: 2px solid #97f0b5 !important;
+  background-color: #f5fffa !important;
 }
 
 /* ===== MEDIA QUERY ===== */
