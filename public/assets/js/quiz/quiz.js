@@ -1,30 +1,24 @@
 var escolha;
-var arr = getCookie(document.cookie);
+var arr = Array(); 
+arr = getCookie(document.cookie);
+
 var a = 0; 
 var b = 0; 
 var c = 0; 
 var d = 0; 
 var e = 0; 
 
-
 function getCookie(string) {
-
-    console.log(string.string);
-    console.log(string.length);
-    if(string.length != 0) {
-        var aux = string.split("=");
-        var k = JSON.parse(aux[1]);
-        return k;
-    } else {
-        return Array();
-    }
+    var teste = string.split(";");
+    var pt1 = teste[0]
+    var aux = pt1.split("=");
+    var k = JSON.parse(aux[1]);
+    return k;
 }
 
 function select(alternativa, question) {
-    console.log(question);
     arr[question] = alternativa;
     console.log(arr);
-    console.log(c);
     escolha = alternativa;
     document.cookie = "escolha=" + JSON.stringify(arr);
 }
@@ -38,7 +32,6 @@ function finalizar() {
             full=false; 
     })
     if(full){
-
         arr.forEach(resposta => {
             if(resposta == 0)
                 a++;
@@ -73,5 +66,4 @@ function finalizar() {
         alert("deu ruim");
         document.getElementById('resposta').value = -1;
     }
-   
 }

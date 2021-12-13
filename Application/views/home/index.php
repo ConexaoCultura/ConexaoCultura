@@ -1,6 +1,6 @@
 <?php
-include_once '../../core/conex.php';
-session_start();
+    include_once '../../core/conex.php';
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -19,7 +19,8 @@ session_start();
     <title>Conexão Cultura</title>
 </head>
 
-<body>
+
+<body class="body">
     <!-- NAVIGATION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,7 +42,7 @@ session_start();
                             <a class="nav-link" href="#"><i class="fas fa-map-signs"></i>Mapa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Roteiro</a>
+                            <a onclick="location.reload(true)" class="nav-link" href="../quiz/quiz.php"><i class="fas fa-map-marked-alt"></i>Quiz</a>
                         </li>
                     </ul>
                 </div>
@@ -51,8 +52,8 @@ session_start();
 
     <main>
         <?php
-        $query_usuario = "SELECT u.id_usuario, u.nome_completo FROM usuario u where u.id_usuario = 1";
-        $usuario = mysqli_fetch_array($conn->query($query_usuario));
+            $query_usuario = "SELECT u.id_usuario, u.nome_completo FROM usuario u where u.id_usuario = 1";
+            $usuario = mysqli_fetch_array($conn->query($query_usuario));
         ?>
         <div class="banner">
             <div class="mensagem">
@@ -72,13 +73,12 @@ session_start();
                 <div class="detalhes">
 
                     <?php
-                    $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e ORDER BY RAND() LIMIT 3";
-                    $result_evento = $conn->prepare($query_evento);
+                        $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e ORDER BY RAND() LIMIT 3";
+                        $result_evento = $conn->prepare($query_evento);
 
-                    $id_evento = [];
+                        $id_evento = [];
                     foreach ($conn->query($query_evento) as $row) {
                         array_push($id_evento, $row['id_evento']);
-
                     ?>
                         <div class="eventoUm">
                             <div class="imgEvento">
@@ -93,17 +93,17 @@ session_start();
                                 </div>
                                 <div class="saberMais">
                                     <div class="publicacao">
-                                        <p>Publicado em <?php echo date('d/m/Y'); ?>
-                                        </p> <!-- alterar uma coisa aqui depois, teste  -->
-                                    </div>
-                                    <div class="botaoSaibaMais">
-                                        <a href="../../views/evento/evento.php">
-                                            <?php
-                                            $idEvento = $row['id_evento'];
-                                            $_SESSION['Evento'] = $idEvento;
+                                        <p>Publicado em 
+                                            <?php 
+                                                $date = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
+                                                $datecorrect = $date->format('d/m/Y'); echo $datecorrect; 
                                             ?>
-                                            <input type="button" value="SAIBA MAIS"></a>
+                                        </p>
                                     </div>
+                                    <form action="../evento/evento.php" method="post" class="botaoSaibaMais">
+                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>>
+                                        <label for="evento">teste</label>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -114,13 +114,12 @@ session_start();
                         <input class="verMais vermais" type="button" value="VER MAIS">
                     </div>
                     <?php
-                    $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e  WHERE e.id_evento != '$id_evento[0]' and e.id_evento != '$id_evento[1]' and e.id_evento != '$id_evento[2]' ORDER BY RAND()";
-                    $result_evento = $conn->prepare($query_evento);
+                        $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e  WHERE e.id_evento != '$id_evento[0]' and e.id_evento != '$id_evento[1]' and e.id_evento != '$id_evento[2]' ORDER BY RAND()";
+                        $result_evento = $conn->prepare($query_evento);
 
-                    $id_evento = [];
-                    foreach ($conn->query($query_evento) as $row) {
-                        array_push($id_evento, $row['id_evento']);
-
+                        $id_evento = [];
+                        foreach ($conn->query($query_evento) as $row) {
+                            array_push($id_evento, $row['id_evento']);
                     ?>
                         <div class="eventoUm vermais_none vermais">
                             <div class="imgEvento">
@@ -135,17 +134,18 @@ session_start();
                                 </div>
                                 <div class="saberMais">
                                     <div class="publicacao">
-                                        <p>Publicado em <?php echo date('d/m/Y'); ?>
+                                        <p>Publicado em 
+                                            <?php 
+                                                $date = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
+                                                $datecorrect = $date->format('d/m/Y'); echo $datecorrect; 
+                                            ?>
                                         </p>
                                     </div>
-                                    <div class="botaoSaibaMais">
-                                        <?php
-                                        $idEvento = $row['id_evento'];
-                                        $_SESSION['Evento'] = $idEvento;
-                                        ?>
-                                        <a href="../../views/evento/evento.php">
-                                            <input type="button" value="SAIBA MAIS"></a>
-                                    </div>
+                                    <form action="../evento/evento.php" method="post" class="botaoSaibaMais">
+                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>>
+                                            <label for="evento">teste</label>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +181,7 @@ session_start();
                         <h6 class="text-uppercase fw-bold mb-4"><a href="#">Home</a></h6>
                         <p><a href="#!" class="text-reset">Perfil</a></p>
                         <p><a href="#!" class="text-reset">Mapa</a></p>
-                        <p><a href="#!" class="text-reset">Roteiro</a></p>
+                        <p><a href="#!" class="text-reset">Quiz</a></p>
                     </div>
 
                     <!-- Grid column -->
@@ -210,9 +210,9 @@ session_start();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3eecc79a6a.js" crossorigin="anonymous"></script>
-    <!-- JS -->
-    <script src="../../../public/assets/js/quiz/quiz.js"></script>
+    <!-- JavaScript -->
     <script src="../../../public/assets/js/home/home.js"></script>
+    <script src="../../../public/assets/js/main.js"></script>
 </body>
 
 </html>

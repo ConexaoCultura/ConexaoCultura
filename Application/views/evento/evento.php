@@ -1,8 +1,6 @@
 <?php
-session_start();
-include_once '../../core/conex.php';
-$id_evento = $_SESSION['Evento'];
-// $id_evento = 1
+    include_once '../../core/conex.php';
+    $id_evento = $_POST["evento"];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -21,7 +19,7 @@ $id_evento = $_SESSION['Evento'];
     <title>Conexão Cultura</title>
 </head>
 
-<body>
+<body class="body">
     <!-- NAVIGATION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,7 +32,7 @@ $id_evento = $_SESSION['Evento'];
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../views/home/index.html"><i class="fas fa-home"></i>Home</a>
+                        <a class="nav-link" href="../../views/home/index.php"><i class="fas fa-home"></i>Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-user"></i>Perfil</a>
@@ -43,7 +41,7 @@ $id_evento = $_SESSION['Evento'];
                         <a class="nav-link" href="#"><i class="fas fa-map-signs"></i>Mapa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Roteiro</a>
+                        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Quiz</a>
                     </li>
                 </ul>
             </div>
@@ -101,9 +99,9 @@ $id_evento = $_SESSION['Evento'];
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.html">Home</a></h6>
-                        <p><a href="#!" class="text-reset">Perfil</a></p>
-                        <p><a href="#!" class="text-reset">Mapa</a></p>
-                        <p><a href="#!" class="text-reset">Roteiro</a></p>
+                        <p><a href="#" class="text-reset">Perfil</a></p>
+                        <p><a href="#" class="text-reset">Mapa</a></p>
+                        <p><a href="#" class="text-reset">Quiz</a></p>
                     </div>
 
                     <!-- Grid column -->
@@ -132,6 +130,8 @@ $id_evento = $_SESSION['Evento'];
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3eecc79a6a.js" crossorigin="anonymous"></script>
+    <!-- JavaScript -->
+    <script src="../../../public/assets/js/main.js"></script>
 </body>
 
 </html>
