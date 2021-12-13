@@ -109,6 +109,7 @@
   border-radius: 10px;
   width: 15.5rem;
   object-fit: cover;
+  margin-left: 1rem;
 }
 
 .descricao {
@@ -166,30 +167,6 @@
   justify-content: center;
 }
 
-:root {
-  --teal-050: #effcf6;
-  --teal-100: #c6f7e2;
-  --teal-200: #8eedc7;
-  --teal-300: #65d6ad;
-  --teal-400: #3ebd93;
-  --teal-500: #27ab83;
-  --teal-600: #199473;
-  --teal-700: #147d64;
-  --teal-800: #0c6b58;
-  --teal-900: #014d40;
-
-  --blue-grey-050: #f0f4f8;
-  --blue-grey-100: #d9e2ec;
-  --blue-grey-200: #bcccdc;
-  --blue-grey-300: #9fb3c8;
-  --blue-grey-400: #829ab1;
-  --blue-grey-500: #627d98;
-  --blue-grey-600: #486581;
-  --blue-grey-700: #334e68;
-  --blue-grey-800: #243b53;
-  --blue-grey-900: #102a43;
-}
-
 /* calendario */
 .calendar {
   width: 100%;
@@ -197,11 +174,11 @@
   border: 1.5px solid #ebebeb;
   border-radius: 8px;
   padding: 0.5rem;
-  height: 18rem;
+  height: 53rem;
 }
 
 .month-indicator {
-  color: var(--blue-grey-700);
+  color: #000000;
   text-align: center;
   font-weight: 500;
 }
@@ -214,11 +191,13 @@
 
 .day-of-week {
   margin-top: 1.25em;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 .day-of-week > * {
   font-size: 0.7em;
-  color: var(--blue-grey-400);
+  color: #6E7781;
   font-weight: 500;
   letter-spacing: 0.1em;
   font-variant: small-caps;
@@ -228,6 +207,8 @@
 /* Dates */
 .date-grid {
   margin-top: 0.5em;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 /* Positioning the first day */
@@ -242,20 +223,73 @@
   height: 4.5ch;
   border-radius: 50%;
   background-color: transparent;
-  color: var(--blue-grey-600);
+  color: #000000;
 }
 
 .date-grid button:hover,
 .date-grid button:focus {
   outline: none;
-  background-color: var(--blue-grey-050);
-  color: var(--blue-grey-700);
+  background-color: #f0f4f8;
+  color: #334e68;
 }
 
 .date-grid button:active,
 .date-grid button.is-selected {
-  background-color: var(--teal-100);
-  color: var(--teal-900);
+  background-color: #c6f7e2;
+  color: #014d40;
+}
+
+.linhaInfo {
+  width: 90%;
+  margin-left: auto;
+  border-bottom: 1px solid #ebebeb;
+  margin-right: auto;
+}
+
+.infos p {
+  margin-bottom: 0;
+  margin-top: 1.3rem;
+  display: flex;
+  margin-left: 8%;
+  color: #767676;
+}
+
+.nomeEvento {
+  display: flex;
+  font-size: 15px;
+  margin-left: 10%;
+  margin-top: 0.5rem;
+}
+
+.nomeEvento h6 {
+  font-weight: normal;
+  width: 80%;
+}
+
+.nomeEvento p {
+  margin-top: 0;
+  font-size: 14px;
+  width: 25%;
+}
+
+.horaEvento {
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+  font-size: 14px;
+}
+
+.horaEvento p {
+  margin-top: 0;
+  margin-left: 0.5rem;
+}
+
+.infosEventoDois {
+  margin-top: 2rem;
+}
+
+.horaEvento i {
+  color: #767676;
 }
 
 /* ver mais */
@@ -399,6 +433,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    grid-gap: 0;
   }
 
   .eventoUm,
@@ -425,6 +460,7 @@
     width: 95%;
     height: 112px;
     align-items: baseline;
+    margin-left: 0;
   }
 
   .tituloEvento {
@@ -438,6 +474,12 @@
 
   .calendar {
     width: 60%;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .calendar {
+    height: 54rem;
   }
 }
 
@@ -501,6 +543,29 @@
   }
 }
 
+@media screen and (max-width: 400px) {
+  .nomeEvento {
+    display: block;
+  }
+
+  .nomeEvento h6 {
+    width: 100%;
+  }
+
+  .nomeEvento p {
+    margin-left: 0;
+  }
+
+  .calendar {
+    height: 45rem;
+  }
+
+  .day-of-week,
+  .date-grid  {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .banner {
     height: 47rem;
@@ -523,6 +588,12 @@
   }
 }
 
+@media screen and (max-width: 322px) {
+  .calendar {
+    height: 47rem;
+  }
+}
+
 @media screen and (max-width: 302px) {
   .banner {
     height: 42rem;
@@ -532,5 +603,9 @@
   .eventoDois,
   .eventoTres {
     height: 27.2rem;
+  }
+
+  .calendar {
+    height: 51rem;
   }
 }
