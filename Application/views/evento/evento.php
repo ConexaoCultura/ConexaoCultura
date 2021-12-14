@@ -1,15 +1,15 @@
 <?php
-    include_once '../../core/conex.php';
-    if(isset($_POST["evento"])) {
+include_once '../../core/conex.php';
+if (isset($_POST["evento"])) {
+    $id_evento = $_POST["evento"];
+    if ($_POST["evento"]) {
         $id_evento = $_POST["evento"];
-        if($_POST["evento"]) {
-            $id_evento = $_POST["evento"]; 
-        } else {
-            header('Location: ../home/index.php');
-        }
     } else {
         header('Location: ../home/index.php');
     }
+} else {
+    header('Location: ../home/index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -40,8 +40,8 @@
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../../views/home/index.php"><i class="fas fa-home"></i>Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../home/index.php"><i class="fas fa-home"></i>Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-user"></i>Perfil</a>
@@ -50,7 +50,7 @@
                         <a class="nav-link" href="#"><i class="fas fa-map-signs"></i>Mapa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Quiz</a>
+                        <a class="nav-link" href="../quiz/quiz.php"><i class="fas fa-map-marked-alt"></i>Quiz</a>
                     </li>
                 </ul>
             </div>
