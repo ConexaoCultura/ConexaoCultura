@@ -62,7 +62,7 @@ error_reporting(E_PARSE);
                     $id_questoes = 0;
 
                     foreach ($conn->query($query_questao) as $row) { ?>
-                        <div class="questao <?php echo $row['id_questao'] == 1 ? "questao-ativa" : ""; ?>" id=<?php echo ("questao" . $row["id_questao"]) ?>>
+                        <div class="questao <?php echo $row['id_questao'] == 1 ? "questao-ativa" : ""; ?> <?php echo ("questao" . $row["id_questao"]) ?>" id=<?php echo ("questao" . $row["id_questao"]) ?>>
                             <p class="title_opcoes">
                                 <?php echo ($row["conteudo"]); ?>
                             </p>
@@ -88,86 +88,83 @@ error_reporting(E_PARSE);
                 <div class="card-header">
                     Questões
                 </div>
-
-                <form action="quiz.php" method="post">
-                    <div class="card-body dois">
-                        <div class="quest um ">
-                            <button class="questButtonActive">
-                                <p>1</p>
-                            </button>
-                        </div>
-                        <div class="quest dois">
-                            <button class="questButton">
-                                <p>2</p>
-                            </button>
-                        </div>
-                        <div class="quest tres">
-                            <button class="questButton">
-                                <p>3</p>
-                            </button>
-                        </div>
-                        <div class="quest quatro">
-                            <button class="questButton">
-                                <p>4</p>
-                            </button>
-                        </div>
-                        <div class="quest cinco">
-                            <button class="questButton">
-                                <p>5</p>
-                            </button>
-                        </div>
-                        <div class="quest seis">
-                            <button class="questButton">
-                                <p>6</p>
-                            </button>
-                        </div>
-                        <div class="quest sete">
-                            <button class="questButton">
-                                <p>7</p>
-                            </button>
-                        </div>
-                        <div class="quest oito">
-                            <button class="questButton">
-                                <p>8</p>
-                            </button>
-                        </div>
-                        <div class="quest nove">
-                            <button class="questButton">
-                                <p>9</p>
-                            </button>
-                        </div>
-                        <div class="quest dez">
-                            <button class="questButton">
-                                <p>10</p>
-                            </button>
-                        </div>
-                        <div class="quest onze">
-                            <button class="questButton">
-                                <p>11</p>
-                            </button>
-                        </div>
-                        <div class="quest doze">
-                            <button class="questButton">
-                                <p>12</p>
-                            </button>
-                        </div>
-                        <div class="quest treze">
-                            <button class="questButton">
-                                <p>13</p>
-                            </button>
-                        </div>
-                        <div class="quest catorze">
-                            <button class="questButton">
-                                <p>14</p>
-                            </button>
-                        </div>
-                        <div class="quest quinze">
-                            <button class="questButton">
-                                <p>15</p>
-                            </button>
-                        </div>
+                <div class="card-body dois perguntas">
+                    <div class="quest um    ">
+                        <button class="questButton questButtonActive">
+                            <p>1</p>
+                        </button>
                     </div>
-                </form>
+                    <div class="quest dois">
+                        <button class="questButton">
+                            <p>2</p>
+                        </button>
+                    </div>
+                    <div class="quest tres">
+                        <button class="questButton">
+                            <p>3</p>
+                        </button>
+                    </div>
+                    <div class="quest quatro">
+                        <button class="questButton">
+                            <p>4</p>
+                        </button>
+                    </div>
+                    <div class="quest cinco">
+                        <button class="questButton">
+                            <p>5</p>
+                        </button>
+                    </div>
+                    <div class="quest seis">
+                        <button class="questButton">
+                            <p>6</p>
+                        </button>
+                    </div>
+                    <div class="quest sete">
+                        <button class="questButton">
+                            <p>7</p>
+                        </button>
+                    </div>
+                    <div class="quest oito">
+                        <button class="questButton">
+                            <p>8</p>
+                        </button>
+                    </div>
+                    <div class="quest nove">
+                        <button class="questButton">
+                            <p>9</p>
+                        </button>
+                    </div>
+                    <div class="quest dez">
+                        <button class="questButton">
+                            <p>10</p>
+                        </button>
+                    </div>
+                    <div class="quest onze">
+                        <button class="questButton">
+                            <p>11</p>
+                        </button>
+                    </div>
+                    <div class="quest doze">
+                        <button class="questButton">
+                            <p>12</p>
+                        </button>
+                    </div>
+                    <div class="quest treze">
+                        <button class="questButton">
+                            <p>13</p>
+                        </button>
+                    </div>
+                    <div class="quest catorze">
+                        <button class="questButton">
+                            <p>14</p>
+                        </button>
+                    </div>
+                    <div class="quest quinze">
+                        <button class="questButton">
+                            <p>15</p>
+                        </button>
+                    </div>
+                </div>
 
                 <form action='../roteiro/roteiro.php' method='post'>
                     <div class='button'>
