@@ -1,7 +1,7 @@
 <?php
     include_once '../../core/conex.php';
     error_reporting(E_PARSE);
-    if($_POST['questionario'] == -1)
+    if(!($_POST['resposta']))
         header("Location: ../quiz/quiz.php");
 ?>
 <!DOCTYPE html>
@@ -35,7 +35,7 @@
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="../../views/home/index.php"><i class="fas fa-home"></i>Home</a>
                     </li>
                     <li class="nav-item">
@@ -45,7 +45,7 @@
                         <a class="nav-link" href="#"><i class="fas fa-map-signs"></i>Mapa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Quiz</a>
+                        <a class="nav-link" href="../../views/quiz/quiz.php"><i class="fas fa-map-marked-alt"></i>Quiz</a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +57,7 @@
         <div class="roteiro">
             <div class="col">
             <?php 
-                    $alternativa = $_POST['questionario'];
+                    $alternativa = $_POST['resposta'];
                     $query = "SELECT * FROM roteiro WHERE alternativa = ".$alternativa;
                     $result = $conn->prepare($query);
                     foreach ($conn->query($query) as $row) {
