@@ -67,13 +67,12 @@ const questoes_lado = document.querySelectorAll(".quest");
 const questoes = document.querySelectorAll(".questao");
 let questao_ativa = "questao1";
 
-alternativa.forEach((element) => {
+div_opcao.forEach((element) => {
   element.addEventListener("click", (event) => {
-    let pai = element.parentNode;
     div_opcao.forEach((element) => {
       element.classList.remove("checked");
     });
-    pai.classList.toggle("checked");
+    element.classList.toggle("checked");
   });
 });
 

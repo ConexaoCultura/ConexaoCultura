@@ -350,10 +350,10 @@ session_start();
 
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4"><a href="#">Home</a></h6>
-                        <p><a href="#!" class="text-reset">Perfil</a></p>
-                        <p><a href="#!" class="text-reset">Mapa</a></p>
-                        <p><a href="#!" class="text-reset">Quiz</a></p>
+                        <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.php">Home</a></h6>
+                        <p><a href="#" class="text-reset">Perfil</a></p>
+                        <p><a href="#" class="text-reset">Mapa</a></p>
+                        <p><a href="../../views/quiz/quiz.php" class="text-reset">Quiz</a></p>
                     </div>
 
                     <!-- Grid column -->

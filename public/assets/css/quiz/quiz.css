@@ -170,6 +170,14 @@ div > div > button {
   display: block;
 }
 
+.card-questoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 85%;
+}
+
+
 /* ===== MEDIA QUERY ===== */
 @media screen and (max-width: 1580px) {
   .card-body.dois {

@@ -88,96 +88,94 @@ error_reporting(E_PARSE);
                 <div class="card-header">
                     Questões
                 </div>
-                <div class="card-body dois perguntas">
-                    <div class="quest um    ">
-                        <button class="questButton questButtonActive">
-                            <p>1</p>
-                        </button>
+                <div class="card-questoes">
+                    <div class="card-body dois perguntas">
+                        <div class="quest um    ">
+                            <button class="questButton questButtonActive">
+                                <p>1</p>
+                            </button>
+                        </div>
+                        <div class="quest dois">
+                            <button class="questButton">
+                                <p>2</p>
+                            </button>
+                        </div>
+                        <div class="quest tres">
+                            <button class="questButton">
+                                <p>3</p>
+                            </button>
+                        </div>
+                        <div class="quest quatro">
+                            <button class="questButton">
+                                <p>4</p>
+                            </button>
+                        </div>
+                        <div class="quest cinco">
+                            <button class="questButton">
+                                <p>5</p>
+                            </button>
+                        </div>
+                        <div class="quest seis">
+                            <button class="questButton">
+                                <p>6</p>
+                            </button>
+                        </div>
+                        <div class="quest sete">
+                            <button class="questButton">
+                                <p>7</p>
+                            </button>
+                        </div>
+                        <div class="quest oito">
+                            <button class="questButton">
+                                <p>8</p>
+                            </button>
+                        </div>
+                        <div class="quest nove">
+                            <button class="questButton">
+                                <p>9</p>
+                            </button>
+                        </div>
+                        <div class="quest dez">
+                            <button class="questButton">
+                                <p>10</p>
+                            </button>
+                        </div>
+                        <div class="quest onze">
+                            <button class="questButton">
+                                <p>11</p>
+                            </button>
+                        </div>
+                        <div class="quest doze">
+                            <button class="questButton">
+                                <p>12</p>
+                            </button>
+                        </div>
+                        <div class="quest treze">
+                            <button class="questButton">
+                                <p>13</p>
+                            </button>
+                        </div>
+                        <div class="quest catorze">
+                            <button class="questButton">
+                                <p>14</p>
+                            </button>
+                        </div>
+                        <div class="quest quinze">
+                            <button class="questButton">
+                                <p>15</p>
+                            </button>
+                        </div>
                     </div>
-                    <div class="quest dois">
-                        <button class="questButton">
-                            <p>2</p>
-                        </button>
-                    </div>
-                    <div class="quest tres">
-                        <button class="questButton">
-                            <p>3</p>
-                        </button>
-                    </div>
-                    <div class="quest quatro">
-                        <button class="questButton">
-                            <p>4</p>
-                        </button>
-                    </div>
-                    <div class="quest cinco">
-                        <button class="questButton">
-                            <p>5</p>
-                        </button>
-                    </div>
-                    <div class="quest seis">
-                        <button class="questButton">
-                            <p>6</p>
-                        </button>
-                    </div>
-                    <div class="quest sete">
-                        <button class="questButton">
-                            <p>7</p>
-                        </button>
-                    </div>
-                    <div class="quest oito">
-                        <button class="questButton">
-                            <p>8</p>
-                        </button>
-                    </div>
-                    <div class="quest nove">
-                        <button class="questButton">
-                            <p>9</p>
-                        </button>
-                    </div>
-                    <div class="quest dez">
-                        <button class="questButton">
-                            <p>10</p>
-                        </button>
-                    </div>
-                    <div class="quest onze">
-                        <button class="questButton">
-                            <p>11</p>
-                        </button>
-                    </div>
-                    <div class="quest doze">
-                        <button class="questButton">
-                            <p>12</p>
-                        </button>
-                    </div>
-                    <div class="quest treze">
-                        <button class="questButton">
-                            <p>13</p>
-                        </button>
-                    </div>
-                    <div class="quest catorze">
-                        <button class="questButton">
-                            <p>14</p>
-                        </button>
-                    </div>
-                    <div class="quest quinze">
-                        <button class="questButton">
-                            <p>15</p>
-                        </button>
-                    </div>
-                </div>
-
-                <form action='../roteiro/roteiro.php' method='post'>
-                    <div class='button'>
-                        <?php
-                        $a =  "<script> document.write(finalizar()) </script>";
-                        ?>
-                        <button id='resposta' onclick='finalizar()' type='submit' name='questionario' value="a" class='botao' type='button'>
-                            Finalizar</button>
-                    </div>
-                </form>
-
-                <div class="card-footer text-muted">
-                    Conexão Cultura
+    
+                    <form action='../roteiro/roteiro.php' method='post'>
+                        <div class='button'>
+                            <?php
+                            $a =  "<script> document.write(finalizar()) </script>";
+                            ?>
+                            <button id='resposta' onclick='finalizar()' type='submit' name='questionario' value="a" class='botao' type='button'>
+                                Finalizar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -198,10 +196,10 @@ error_reporting(E_PARSE);
 
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.html">Home</a></h6>
-                        <p><a href="#!" class="text-reset">Perfil</a></p>
-                        <p><a href="#!" class="text-reset">Mapa</a></p>
-                        <p><a href="#!" class="text-reset">Quiz</a></p>
+                        <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.php">Home</a></h6>
+                        <p><a href="#" class="text-reset">Perfil</a></p>
+                        <p><a href="#" class="text-reset">Mapa</a></p>
+                        <p><a href="../../views/quiz/quiz.php" class="text-reset">Quiz</a></p>
                     </div>
 
                     <!-- Grid column -->
@@ -215,9 +213,9 @@ error_reporting(E_PARSE);
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">Social
                         </h6>
-                        <p><i class="fab fa-facebook"></i> Facebook</a></p>
-                        <p><i class="fab fa-instagram"></i> Instagram</a></p>
-                        <p><i class="fab fa-twitter"></i> Twitter</a></p>
+                        <p><a href="#!" class="text-reset"><i class="fab fa-facebook"></i> Facebook</a></p>
+                        <p><a href="#!" class="text-reset"><i class="fab fa-instagram"></i> Instagram</a></p>
+                        <p><a href="#!" class="text-reset"><i class="fab fa-twitter"></i> Twitter</a></p>
                     </div>
                 </div>
             </div>
