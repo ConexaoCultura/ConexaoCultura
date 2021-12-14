@@ -37,7 +37,8 @@
 }
 
 /* eventos */
-.eventos {display: flex;
+.eventos {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -87,10 +88,11 @@
   border-radius: 10px;
   width: 48rem;
   height: 14.88rem;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
   visibility: visible;
+  grid-template-columns: 2fr 3fr;
 }
 
 .eventoDois,
@@ -102,7 +104,6 @@
 .imgEvento {
   display: flex;
   align-items: center;
-  height: 100%;
 }
 
 .imgEvento img {
@@ -137,12 +138,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 56px;
+  margin-top: 35px;
 }
 
 .botaoSaibaMais button {
   border: none;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .botaoSaibaMais label {
@@ -198,7 +199,7 @@
 
 .day-of-week > * {
   font-size: 0.7em;
-  color: #6E7781;
+  color: #6e7781;
   font-weight: 500;
   letter-spacing: 0.1em;
   font-variant: small-caps;
@@ -232,12 +233,7 @@
   outline: none;
   background-color: #f0f4f8;
   color: #334e68;
-}
-
-.date-grid button:active,
-.date-grid button.is-selected {
-  background-color: #c6f7e2;
-  color: #014d40;
+  cursor: pointer;
 }
 
 .linhaInfo {
@@ -291,6 +287,26 @@
 
 .horaEvento i {
   color: #767676;
+}
+
+div.calendar > div.date-grid > button:nth-child(15),
+div.calendar > div.date-grid > button:nth-child(17),
+div.calendar > div.date-grid > button:nth-child(18),
+div.calendar > div.date-grid > button:nth-child(19) {
+  background-color: #c6f7e2;
+  color: #014d40;
+}
+
+div.calendar > div.date-grid > button:nth-child(15):hover,
+div.calendar > div.date-grid > button:nth-child(15):focus,
+div.calendar > div.date-grid > button:nth-child(17):hover,
+div.calendar > div.date-grid > button:nth-child(17):focus,
+div.calendar > div.date-grid > button:nth-child(18):hover,
+div.calendar > div.date-grid > button:nth-child(18):focus,
+div.calendar > div.date-grid > button:nth-child(19):hover,
+div.calendar > div.date-grid > button:nth-child(19):focus {
+  background-color: #f0f4f8;
+  color: #014d40;
 }
 
 /* ver mais */
@@ -429,7 +445,7 @@
     width: 80%;
   }
 
-  .conteudo {    
+  .conteudo {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -442,7 +458,7 @@
   .eventoTres {
     width: 100%;
     display: block;
-    height: 21.2rem;
+    height: 30rem;
   }
 
   .eventoDois,
@@ -458,8 +474,8 @@
   }
 
   .imgEvento img {
-    width: 95%;
-    height: 112px;
+    width: 45%;
+    height: 250px;
     align-items: baseline;
     margin-left: 0;
   }
@@ -492,15 +508,14 @@
   .mensagem p {
     font-size: 25px;
   }
+
+  .eventoUm img {
+    width: 65%;
+    height: 200px;
+  }
 }
 
 @media screen and (max-width: 509px) {
-  .eventoUm,
-  .eventoDois,
-  .eventoTres {
-    height: 23.2rem;
-  }
-
   .eventoUm p,
   .eventoDois p,
   .eventoTres p {
@@ -530,7 +545,11 @@
   .eventoUm,
   .eventoDois,
   .eventoTres {
-    height: 25.2rem;
+    height: 35rem;
+  }
+
+  .eventoUm img {
+    width: 95%;
   }
 
   .saberMais {
@@ -562,7 +581,7 @@
   }
 
   .day-of-week,
-  .date-grid  {
+  .date-grid {
     display: none;
   }
 }
@@ -581,14 +600,6 @@
   }
 }
 
-@media screen and (max-width: 341px) {
-  .eventoUm,
-  .eventoDois,
-  .eventoTres {
-    height: 26.2rem;
-  }
-}
-
 @media screen and (max-width: 322px) {
   .calendar {
     height: 47rem;
@@ -603,10 +614,15 @@
   .eventoUm,
   .eventoDois,
   .eventoTres {
-    height: 27.2rem;
+    height: 38rem;
   }
 
   .calendar {
     height: 51rem;
+  }
+
+  .detalhes {
+    margin-left: 0;
+    width: 85%;
   }
 }

@@ -79,6 +79,7 @@
   transition: border 0.1s, height 0.1s;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
   text-align: left;
 }
@@ -95,7 +96,6 @@
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   grid-gap: 0.5rem;
-  height: 85%;
   justify-content: center;
   align-items: center;
 }
@@ -142,9 +142,11 @@
 }
 
 #alternativa {
-  background-color: white;
-  border: none;
   width: 100%;
+}
+div > div > button {
+  background: none;
+  border: none;
 }
 
 .botao {
@@ -158,6 +160,14 @@
 .checked {
   border: 2px solid #97f0b5 !important;
   background-color: #f5fffa !important;
+}
+
+.questao {
+  display: none;
+}
+
+.questao-ativa {
+  display: block;
 }
 
 /* ===== MEDIA QUERY ===== */
