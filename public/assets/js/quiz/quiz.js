@@ -63,11 +63,9 @@ var e = 0;
 
 const alternativa = document.querySelectorAll(".alternativa");
 const div_opcao = document.querySelectorAll(".div_opcao");
-console.log(alternativa);
-console.log(div_opcao);
+const questoes = document.querySelectorAll(".questao");
 alternativa.forEach((element) => {
   element.addEventListener("click", (event) => {
-    console.log(element);
     let pai = element.parentNode;
     div_opcao.forEach((element) => {
       element.classList.remove("checked");
@@ -76,8 +74,8 @@ alternativa.forEach((element) => {
   });
 });
 
-div_opcao.forEach((element) => {
-  element.addEventListener("click", (event) => {
-    element.classList.add("questao-ativa")
-  });
-})
+// questoes.forEach((element) => {
+//   element.addEventListener("click", (event) => {
+//     element.classList.toggle("questao-ativa");
+//   });
+// });
