@@ -12,8 +12,8 @@ error_reporting(E_PARSE);
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- CSS -->
-    <link rel="stylesheet" href="../../../public/assets/css/quiz/quiz.css">
     <link rel="stylesheet" href="../../../public/assets/css/syle.css">
+    <link rel="stylesheet" href="../../../public/assets/css/quiz/quiz.css">
     <!-- FAVICON -->
     <link rel="shortcut icon" href="../../../public/assets/img/favicon.ico" type="image/x-icon">
     <title>Conexão Cultura</title>
