@@ -79,6 +79,7 @@
   transition: border 0.1s, height 0.1s;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
   text-align: left;
 }
@@ -142,9 +143,11 @@
 }
 
 #alternativa {
-  background-color: white;
-  border: none;
   width: 100%;
+}
+div > div > button {
+  background: none;
+  border: none;
 }
 
 .botao {
