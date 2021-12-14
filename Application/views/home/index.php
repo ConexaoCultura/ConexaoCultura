@@ -42,7 +42,7 @@
                             <a class="nav-link" href="#"><i class="fas fa-map-signs"></i>Mapa</a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="location.reload(true)" class="nav-link" href="../quiz/quiz.php"><i class="fas fa-map-marked-alt"></i>Quiz</a>
+                            <a class="nav-link" href="../quiz/quiz.php"><i class="fas fa-map-marked-alt"></i>Quiz</a>
                         </li>
                     </ul>
                 </div>
@@ -101,8 +101,8 @@
                                         </p>
                                     </div>
                                     <form action="../evento/evento.php" method="post" class="botaoSaibaMais">
-                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>>
-                                            <label for="evento">Saiba Mais</label>
+                                        <label for="<?php echo ("evento".$row['id_evento']); ?>">Saiba Mais</label>
+                                        <button type="submit" id="<?php echo ("evento".$row['id_evento']); ?>" name="evento" value= <?php echo $row['id_evento']; ?>>
                                         </button>
                                     </form>
                                 </div>
@@ -143,8 +143,8 @@
                                         </p>
                                     </div>
                                     <form action="../evento/evento.php" method="post" class="botaoSaibaMais">
-                                        <button type="submit" id="evento" name="evento" value= <?php echo $row['id_evento']; ?>>
-                                            <label for="evento">Saiba Mais</label>
+                                        <label for="<?php echo ("evento".$row['id_evento']); ?>">Saiba Mais</label>
+                                        <button type="submit" id="<?php echo ("evento".$row['id_evento']); ?>" name="evento" value= <?php echo $row['id_evento']; ?>>
                                         </button>
                                     </form>
                                 </div>
@@ -319,7 +319,7 @@
                         <div class="linhaInfo"></div>
                         <div class="infosEvento">
                             <div class="nomeEvento">
-                                <h6>Marcelo D2 Assim Tocam os Meus Tambores</h6>
+                                <h6>Luan The Comeback</h6>
                                 <p>R$110,00</p>
                             </div>
                             <div class="horaEvento">

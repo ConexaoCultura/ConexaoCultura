@@ -160,6 +160,14 @@
   background-color: #f5fffa !important;
 }
 
+.questao {
+  display: none;
+}
+
+.questao-ativa {
+  display: block;
+}
+
 /* ===== MEDIA QUERY ===== */
 @media screen and (max-width: 1580px) {
   .card-body.dois {

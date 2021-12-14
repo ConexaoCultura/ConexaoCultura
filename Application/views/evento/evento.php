@@ -1,6 +1,15 @@
 <?php
     include_once '../../core/conex.php';
-    $id_evento = $_POST["evento"];
+    if(isset($_POST["evento"])) {
+        $id_evento = $_POST["evento"];
+        if($_POST["evento"]) {
+            $id_evento = $_POST["evento"]; 
+        } else {
+            header('Location: ../home/index.php');
+        }
+    } else {
+        header('Location: ../home/index.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
