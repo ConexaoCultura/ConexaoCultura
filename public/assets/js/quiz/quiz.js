@@ -63,7 +63,10 @@ var e = 0;
 
 const alternativa = document.querySelectorAll(".alternativa");
 const div_opcao = document.querySelectorAll(".div_opcao");
+const questoes_lado = document.querySelectorAll(".quest");
 const questoes = document.querySelectorAll(".questao");
+let questao_ativa = "questao1";
+
 alternativa.forEach((element) => {
   element.addEventListener("click", (event) => {
     let pai = element.parentNode;
@@ -74,8 +77,21 @@ alternativa.forEach((element) => {
   });
 });
 
-// questoes.forEach((element) => {
-//   element.addEventListener("click", (event) => {
-//     element.classList.toggle("questao-ativa");
-//   });
-// });
+questoes_lado.forEach((element) => {
+  element.addEventListener("click", (event) => {
+    questoes_lado.forEach((element) => {
+      // element.classList.remove("questao-ativa");
+      element.children[0].classList.remove("questButtonActive");
+    });
+    // element.classList.add("questao-ativa");
+    element.children[0].classList.add("questButtonActive");
+    questao_ativa = "questao" + element.children[0].children[0].textContent;
+    questoes.forEach((element) => {
+      if (element.classList.contains(questao_ativa)) {
+        element.classList.add("questao-ativa");
+      } else {
+        element.classList.remove("questao-ativa");
+      }
+    });
+  });
+});
