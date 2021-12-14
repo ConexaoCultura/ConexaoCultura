@@ -31,7 +31,7 @@ error_reporting(E_PARSE);
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
+                    <li class="nav-item ">
                         <a class="nav-link" href="../../views/home/index.php"><i class="fas fa-home"></i>Home</a>
                     </li>
                     <li class="nav-item">
@@ -40,7 +40,7 @@ error_reporting(E_PARSE);
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-map-signs"></i>Mapa</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Quiz</a>
                     </li>
                 </ul>
@@ -57,31 +57,31 @@ error_reporting(E_PARSE);
                 </div>
                 <div class="card-body">
                     <?php
-                        $query_questao = "SELECT id_questao, conteudo FROM questao";
-                        $result_questao = $conn->prepare($query_questao);
-                        $id_questoes = 0;
-                            
-                        foreach($conn->query($query_questao) as $row) { ?>
-                            <div class="questao <?php echo $row['id_questao'] == 1 ? "questao-ativa" : "";?>" id=<?php echo("questao".$row["id_questao"]) ?>>
-                                <p class="title_opcoes">
-                                    <?php echo ($row["conteudo"]); ?>
-                                </p>
-                                <div class="opcoes">
-                                    <?php
-                                        $query_alternativa = "SELECT * FROM alternativa WHERE id_questao = " . $row["id_questao"];
-                                        $result_alternativa = $conn->prepare($query_alternativa);
-                                        
-                                        foreach ($conn->query($query_alternativa) as $row) {
-                                    ?>
-                                            <div class="div_opcao">
-                                                <button onclick=<?php echo $row[0]; ?> id="alternativa" class="alternativa">
-                                                    <?php echo $row["enunciado"] ?>
-                                                </button>
-                                            </div>
-                                    <?php  } ?>
-                                </div>
+                    $query_questao = "SELECT id_questao, conteudo FROM questao";
+                    $result_questao = $conn->prepare($query_questao);
+                    $id_questoes = 0;
+
+                    foreach ($conn->query($query_questao) as $row) { ?>
+                        <div class="questao <?php echo $row['id_questao'] == 1 ? "questao-ativa" : ""; ?>" id=<?php echo ("questao" . $row["id_questao"]) ?>>
+                            <p class="title_opcoes">
+                                <?php echo ($row["conteudo"]); ?>
+                            </p>
+                            <div class="opcoes">
+                                <?php
+                                $query_alternativa = "SELECT * FROM alternativa WHERE id_questao = " . $row["id_questao"];
+                                $result_alternativa = $conn->prepare($query_alternativa);
+
+                                foreach ($conn->query($query_alternativa) as $row) {
+                                ?>
+                                    <div class="div_opcao">
+                                        <button onclick=<?php echo $row[0]; ?> id="alternativa" class="alternativa">
+                                            <?php echo $row["enunciado"] ?>
+                                        </button>
+                                    </div>
+                                <?php  } ?>
                             </div>
-                        <?php } ?>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="card text-center">
