@@ -233,12 +233,7 @@
   outline: none;
   background-color: #f0f4f8;
   color: #334e68;
-}
-
-.date-grid button:active,
-.date-grid button.is-selected {
-  background-color: #c6f7e2;
-  color: #014d40;
+  cursor: pointer;
 }
 
 .linhaInfo {
@@ -292,6 +287,26 @@
 
 .horaEvento i {
   color: #767676;
+}
+
+div.calendar > div.date-grid > button:nth-child(15),
+div.calendar > div.date-grid > button:nth-child(17),
+div.calendar > div.date-grid > button:nth-child(18),
+div.calendar > div.date-grid > button:nth-child(19) {
+  background-color: #c6f7e2;
+  color: #014d40;
+}
+
+div.calendar > div.date-grid > button:nth-child(15):hover,
+div.calendar > div.date-grid > button:nth-child(15):focus,
+div.calendar > div.date-grid > button:nth-child(17):hover,
+div.calendar > div.date-grid > button:nth-child(17):focus,
+div.calendar > div.date-grid > button:nth-child(18):hover,
+div.calendar > div.date-grid > button:nth-child(18):focus,
+div.calendar > div.date-grid > button:nth-child(19):hover,
+div.calendar > div.date-grid > button:nth-child(19):focus {
+  background-color: #f0f4f8;
+  color: #014d40;
 }
 
 /* ver mais */
