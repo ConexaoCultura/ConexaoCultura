@@ -18,11 +18,13 @@ for (var i = 0; i < 15; i++) {
 function navegar() {
   alternativa.forEach((element) => {
     element.addEventListener("click", (event) => {
-      let pai = element.parentNode;
-      div_opcao.forEach((element) => {
-        element.classList.remove("checked");
-      });
-      pai.classList.toggle("checked");
+      let pai = element.parentNode.parentNode;
+      let filhos = pai.children;
+
+      for (var i = 0; i < 5; i++) {
+        filhos[i].children[0].classList.remove("checked");
+      }
+      element.classList.add("checked");
     });
   });
 

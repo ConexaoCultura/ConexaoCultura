@@ -58,9 +58,9 @@
                     </div>
                     <div class="card-body">
                         <?php
-                        $query_questao = "SELECT id_questao, conteudo FROM questao";
-                        $result_questao = $conn->prepare($query_questao);
-                        $id_questoes = 0;
+                            $query_questao = "SELECT id_questao, conteudo FROM questao";
+                            $result_questao = $conn->prepare($query_questao);
+                            $id_questoes = 0;
                         ?>
 
                         <?php foreach ($conn->query($query_questao) as $row) { ?>

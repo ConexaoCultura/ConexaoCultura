@@ -1,6 +1,6 @@
 <?php
-include_once '../../core/conex.php';
-session_start();
+    include_once '../../core/conex.php';
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -52,8 +52,8 @@ session_start();
 
     <main>
         <?php
-        $query_usuario = "SELECT u.id_usuario, u.nome_completo FROM usuario u where u.id_usuario = 1";
-        $usuario = mysqli_fetch_array($conn->query($query_usuario));
+            $query_usuario = "SELECT u.id_usuario, u.nome_completo FROM usuario u where u.id_usuario = 1";
+            $usuario = mysqli_fetch_array($conn->query($query_usuario));
         ?>
         <div class="banner">
             <div class="mensagem">
@@ -73,12 +73,12 @@ session_start();
                 <div class="detalhes">
 
                     <?php
-                    $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e ORDER BY RAND() LIMIT 3";
-                    $result_evento = $conn->prepare($query_evento);
+                        $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e ORDER BY RAND() LIMIT 3";
+                        $result_evento = $conn->prepare($query_evento);
 
-                    $id_evento = [];
-                    foreach ($conn->query($query_evento) as $row) {
-                        array_push($id_evento, $row['id_evento']);
+                        $id_evento = [];
+                        foreach ($conn->query($query_evento) as $row) {
+                            array_push($id_evento, $row['id_evento']);
                     ?>
                         <div class="eventoUm">
                             <div class="imgEvento">
@@ -116,12 +116,12 @@ session_start();
                         <input class="verMais vermais" type="button" value="VER MAIS">
                     </div>
                     <?php
-                    $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e  WHERE e.id_evento != '$id_evento[0]' and e.id_evento != '$id_evento[1]' and e.id_evento != '$id_evento[2]' ORDER BY RAND()";
-                    $result_evento = $conn->prepare($query_evento);
+                        $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.informacao FROM eventos e  WHERE e.id_evento != '$id_evento[0]' and e.id_evento != '$id_evento[1]' and e.id_evento != '$id_evento[2]' ORDER BY RAND()";
+                        $result_evento = $conn->prepare($query_evento);
 
-                    $id_evento = [];
-                    foreach ($conn->query($query_evento) as $row) {
-                        array_push($id_evento, $row['id_evento']);
+                        $id_evento = [];
+                        foreach ($conn->query($query_evento) as $row) {
+                            array_push($id_evento, $row['id_evento']);
                     ?>
                         <div class="eventoUm vermais_none vermais">
                             <div class="imgEvento">
@@ -138,9 +138,9 @@ session_start();
                                     <div class="publicacao">
                                         <p>Publicado em
                                             <?php
-                                            $date = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
-                                            $datecorrect = $date->format('d/m/Y');
-                                            echo $datecorrect;
+                                                $date = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
+                                                $datecorrect = $date->format('d/m/Y');
+                                                echo $datecorrect;
                                             ?>
                                         </p>
                                     </div>

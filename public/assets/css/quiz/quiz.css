@@ -158,6 +158,7 @@ div > div > button {
 .checked {
   border: 2px solid #97f0b5 !important;
   background-color: #f5fffa !important;
+  border-radius: 10px;
 }
 
 .questao {
