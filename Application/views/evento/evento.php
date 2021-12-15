@@ -32,8 +32,8 @@ if (isset($_POST["evento"])) {
     <!-- NAVIGATION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura">
-            <img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura">
+            <a href="../../views/home/index.php"><img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura"></a>
+            <a href="../../views/home/index.php"><img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -59,9 +59,8 @@ if (isset($_POST["evento"])) {
 
     <main>
         <?php
-        $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.endereco, e.data, e.valor, e.classificacao, e.informacao_evento, e.musicas FROM eventos e where e.id_evento = '$id_evento ' LIMIT 1";
-        $evento = mysqli_fetch_array($conn->query($query_evento));
-
+            $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.endereco, e.data, e.valor, e.classificacao, e.informacao_evento, e.musicas FROM eventos e where e.id_evento = '$id_evento ' LIMIT 1";
+            $evento = mysqli_fetch_array($conn->query($query_evento));
         ?>
         <div class="imgEventoFundo">
             <img src="<?php echo $evento['imagem'] ?>" alt="Imagem evento">

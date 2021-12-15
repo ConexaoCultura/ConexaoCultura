@@ -26,8 +26,8 @@
     <!-- NAVIGATION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura">
-            <img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura">
+            <a href="../../views/home/index.php"><img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura"></a>
+            <a href="../../views/home/index.php"><img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -54,21 +54,31 @@
 
     <main>
         <h2 class="titulo">Roteiro</h2>
+        <?php 
+            $alternativa = $_POST['resposta'];
+            $query = "SELECT * FROM roteiro JOIN texto ON roteiro.alternativa = texto.id_texto WHERE alternativa = ".$alternativa;
+            $result = $conn->query($query);
+        ?>
+        <p class="souEu">
+            <?php 
+                while($row = $result->fetch_row())
+                {       
+                    echo($row[7]);
+                    break;  
+                }
+            ?>
+        </p>
         <div class="roteiro">
             <div class="col">
             <?php 
-                    $alternativa = $_POST['resposta'];
-                    $query = "SELECT * FROM roteiro WHERE alternativa = ".$alternativa;
-                    $result = $conn->prepare($query);
-                    foreach ($conn->query($query) as $row) {
+                foreach ($result as $row) {
                 ?>
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
                             <h4 class="my-0 fw-normal"><?php echo $row['pontos_turisticos']?></h4>
                         </div>
                         <div class="card-body">
-                            <img src="<?php echo $row['imagem']?>" alt="Imagem do Evento">
-                            </h1>
+                            <img src="<?php echo $row['imagem'];?>" alt="Imagem do Evento">
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li><span>Endereço:</span></li>
                                 <li> <?php echo $row['endereco'] ?>

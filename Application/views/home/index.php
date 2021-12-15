@@ -24,8 +24,8 @@ session_start();
     <!-- NAVIGATION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura">
-            <img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura">
+            <a href="../../views/home/index.php"><img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura"></a>
+            <a href="../../views/home/index.php"><img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura"></a>
             <button id="btn_menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
