@@ -1,7 +1,7 @@
 <?php
     include_once '../../core/conex.php';
     error_reporting(E_PARSE);
-    if($_POST['questionario'] == -1)
+    if(!($_POST['resposta']))
         header("Location: ../quiz/quiz.php");
 ?>
 <!DOCTYPE html>
@@ -26,8 +26,8 @@
     <!-- NAVIGATION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura">
-            <img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura">
+            <a href="../../views/home/index.php"><img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura"></a>
+            <a href="../../views/home/index.php"><img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="../../views/home/index.php"><i class="fas fa-home"></i>Home</a>
                     </li>
                     <li class="nav-item">
@@ -45,7 +45,7 @@
                         <a class="nav-link" href="#"><i class="fas fa-map-signs"></i>Mapa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt"></i>Quiz</a>
+                        <a class="nav-link" href="../../views/quiz/quiz.php"><i class="fas fa-map-marked-alt"></i>Quiz</a>
                     </li>
                 </ul>
             </div>
@@ -54,21 +54,31 @@
 
     <main>
         <h2 class="titulo">Roteiro</h2>
+        <?php 
+            $alternativa = $_POST['resposta'];
+            $query = "SELECT * FROM roteiro JOIN texto ON roteiro.alternativa = texto.id_texto WHERE alternativa = ".$alternativa;
+            $result = $conn->query($query);
+        ?>
+        <p class="souEu">
+            <?php 
+                while($row = $result->fetch_row())
+                {       
+                    echo($row[7]);
+                    break;  
+                }
+            ?>
+        </p>
         <div class="roteiro">
             <div class="col">
             <?php 
-                    $alternativa = $_POST['questionario'];
-                    $query = "SELECT * FROM roteiro WHERE alternativa = ".$alternativa;
-                    $result = $conn->prepare($query);
-                    foreach ($conn->query($query) as $row) {
+                foreach ($result as $row) {
                 ?>
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
                             <h4 class="my-0 fw-normal"><?php echo $row['pontos_turisticos']?></h4>
                         </div>
                         <div class="card-body">
-                            <img src="<?php echo $row['imagem']?>" alt="Imagem do Evento">
-                            </h1>
+                            <img src="<?php echo $row['imagem'];?>" alt="Imagem do Evento">
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li><span>Endereço:</span></li>
                                 <li> <?php echo $row['endereco'] ?>
@@ -102,10 +112,10 @@
 
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.html">Home</a></h6>
-                        <p><a href="#!" class="text-reset">Perfil</a></p>
-                        <p><a href="#!" class="text-reset">Mapa</a></p>
-                        <p><a href="#!" class="text-reset">Quiz</a></p>
+                        <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.php">Home</a></h6>
+                        <p><a href="#" class="text-reset">Perfil</a></p>
+                        <p><a href="#" class="text-reset">Mapa</a></p>
+                        <p><a href="../../views/quiz/quiz.php" class="text-reset">Quiz</a></p>
                     </div>
 
                     <!-- Grid column -->

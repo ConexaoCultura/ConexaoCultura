@@ -1,15 +1,15 @@
 <?php
-include_once '../../core/conex.php';
-if (isset($_POST["evento"])) {
-    $id_evento = $_POST["evento"];
-    if ($_POST["evento"]) {
+    include_once '../../core/conex.php';
+    if (isset($_POST["evento"])) {
         $id_evento = $_POST["evento"];
+        if ($_POST["evento"]) {
+            $id_evento = $_POST["evento"];
+        } else {
+            header('Location: ../home/index.php');
+        }
     } else {
         header('Location: ../home/index.php');
     }
-} else {
-    header('Location: ../home/index.php');
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -32,8 +32,8 @@ if (isset($_POST["evento"])) {
     <!-- NAVIGATION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura">
-            <img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura">
+            <a href="../../views/home/index.php"><img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura"></a>
+            <a href="../../views/home/index.php"><img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -59,9 +59,8 @@ if (isset($_POST["evento"])) {
 
     <main>
         <?php
-        $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.endereco, e.data, e.valor, e.classificacao, e.informacao_evento, e.musicas FROM eventos e where e.id_evento = '$id_evento ' LIMIT 1";
-        $evento = mysqli_fetch_array($conn->query($query_evento));
-
+            $query_evento = "SELECT e.id_evento, e.imagem, e.nome_evento, e.endereco, e.data, e.valor, e.classificacao, e.informacao_evento, e.musicas FROM eventos e where e.id_evento = '$id_evento ' LIMIT 1";
+            $evento = mysqli_fetch_array($conn->query($query_evento));
         ?>
         <div class="imgEventoFundo">
             <img src="<?php echo $evento['imagem'] ?>" alt="Imagem evento">
@@ -107,10 +106,10 @@ if (isset($_POST["evento"])) {
 
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.html">Home</a></h6>
+                        <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.php">Home</a></h6>
                         <p><a href="#" class="text-reset">Perfil</a></p>
                         <p><a href="#" class="text-reset">Mapa</a></p>
-                        <p><a href="#" class="text-reset">Quiz</a></p>
+                        <p><a href="../../views/quiz/quiz.php" class="text-reset">Quiz</a></p>
                     </div>
 
                     <!-- Grid column -->

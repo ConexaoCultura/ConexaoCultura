@@ -177,5 +177,6 @@ img.imagemFooter {
     visibility: visible;
     display: flex;
     width: 5rem;
+    margin-left: -7rem;
   }
 }

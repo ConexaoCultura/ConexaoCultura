@@ -1,6 +1,6 @@
 <?php
-include_once '../../core/conex.php';
-error_reporting(E_PARSE);
+    include_once '../../core/conex.php';
+    error_reporting(E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -19,12 +19,12 @@ error_reporting(E_PARSE);
     <title>Conexão Cultura</title>
 </head>
 
-<body>
+<body class="body">
     <!-- NAVIGATION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura">
-            <img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura">
+            <a href="../../views/home/index.php"><img class="logo show1" src="../../../public/assets/img/logo.png" alt="Logo Conexão Cultura"></a>
+            <a href="../../views/home/index.php"><img class="logo show2" src="../../../public/assets/img/logoSemNome.png" alt="Logo Conexão Cultura"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -51,135 +51,132 @@ error_reporting(E_PARSE);
     <main>
         <h2 class="titulo">Quiz</h2>
         <div class="questionario">
-            <div class="card">
-                <div class="card-header">
-                    Pergunta
+            <form action="../roteiro/roteiro.php" method="post">
+                <div class="card">
+                    <div class="card-header">
+                        Pergunta
+                    </div>
+                    <div class="card-body">
+                        <?php
+                            $query_questao = "SELECT id_questao, conteudo FROM questao";
+                            $result_questao = $conn->prepare($query_questao);
+                            $id_questoes = 0;
+                        ?>
+
+                        <?php foreach ($conn->query($query_questao) as $row) { ?>
+                            <div class="questao <?php echo $row['id_questao'] == 1 ? "questao-ativa" : ""; ?> <?php echo ("questao" . $row["id_questao"]) ?>" id=<?php echo ("questao" . $row["id_questao"]) ?>>
+                                <p class="title_opcoes">
+                                    <?php echo ($row["conteudo"]); ?>
+                                </p>
+                                <div class="opcoes">
+                                    <?php
+                                        $query_alternativa = "SELECT * FROM alternativa WHERE id_questao = " . $row["id_questao"];
+                                        $result_alternativa = $conn->prepare($query_alternativa);
+
+                                        foreach ($conn->query($query_alternativa) as $row) {
+                                    ?>
+                                        <div class="div_opcao">
+                                            <label id=<?php echo($row["id_alterantiva"]) ?> id_questao=<?php echo($row["id_questao"]);?> class="alternativa" for=<?php echo("alternativa") . $row["id_alterantiva"] ?>>
+                                                <?php echo $row["enunciado"] ?>
+                                            </label>
+                                            <input class="inputAlternativa" value=<?php echo($row["letra_alternativa"])?> type="radio" name=<?php echo("questao" . $row["id_questao"]);?> id=<?php echo($row["id_alterantiva"]);?>>
+                                        </div>
+                                    <?php  } ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <?php
-                    $query_questao = "SELECT id_questao, conteudo FROM questao";
-                    $result_questao = $conn->prepare($query_questao);
-                    $id_questoes = 0;
-
-                    foreach ($conn->query($query_questao) as $row) { ?>
-                        <div class="questao <?php echo $row['id_questao'] == 1 ? "questao-ativa" : ""; ?> <?php echo ("questao" . $row["id_questao"]) ?>" id=<?php echo ("questao" . $row["id_questao"]) ?>>
-                            <p class="title_opcoes">
-                                <?php echo ($row["conteudo"]); ?>
-                            </p>
-                            <div class="opcoes">
-                                <?php
-                                $query_alternativa = "SELECT * FROM alternativa WHERE id_questao = " . $row["id_questao"];
-                                $result_alternativa = $conn->prepare($query_alternativa);
-
-                                foreach ($conn->query($query_alternativa) as $row) {
-                                ?>
-                                    <div class="div_opcao">
-                                        <button onclick=<?php echo $row[0]; ?> id="alternativa" class="alternativa">
-                                            <?php echo $row["enunciado"] ?>
-                                        </button>
-                                    </div>
-                                <?php  } ?>
+                <div class="card text-center">
+                    <div class="card-header">
+                        Questões
+                    </div>
+                    <div class="card-questoes">
+                        <div class="card-body dois perguntas">
+                            <div questao=1 class="quest questao1">
+                                <button type="button" class="questButton questButtonActive">
+                                    <p>1</p>
+                                </button>
+                            </div>
+                            <div questao=2 class="quest questao2">
+                                <button type="button" class="questButton">
+                                    <p>2</p>
+                                </button>
+                            </div>
+                            <div questao=3 class="quest questao3">
+                                <button type="button"class="questButton">
+                                    <p>3</p>
+                                </button>
+                            </div>
+                            <div questao=4 class="quest questao4">
+                                <button type="button" class="questButton">
+                                    <p>4</p>
+                                </button>
+                            </div>
+                            <div questao=5 class="quest questao5">
+                                <button type="button" class="questButton">
+                                    <p>5</p>
+                                </button>
+                            </div>
+                            <div questao=6 class="quest questao6">
+                                <button type="button" class="questButton">
+                                    <p>6</p>
+                                </button>
+                            </div>
+                            <div questao=7 class="quest questao7">
+                                <button type="button" class="questButton">
+                                    <p>7</p>
+                                </button>
+                            </div>
+                            <div questao=8 class="quest questao8">
+                                <button type="button" class="questButton">
+                                    <p>8</p>
+                                </button>
+                            </div>
+                            <div questao=9 class="quest questao9">
+                                <button type="button" class="questButton">
+                                    <p>9</p>
+                                </button>
+                            </div>
+                            <div questao=10 class="quest questao10">
+                                <button type="button" class="questButton">
+                                    <p>10</p>
+                                </button>
+                            </div>
+                            <div questao=11 class="quest questao11">
+                                <button type="button" class="questButton">
+                                    <p>11</p>
+                                </button>
+                            </div>
+                            <div questao=12 class="quest questao12">
+                                <button type="button" class="questButton">
+                                    <p>12</p>
+                                </button>
+                            </div>
+                            <div questao=13 class="quest questao13">
+                                <button type="button" class="questButton">
+                                    <p>13</p>
+                                </button>
+                            </div>
+                            <div questao=14 class="quest questao14">
+                                <button type="button" class="questButton">
+                                    <p>14</p>
+                                </button>
+                            </div>
+                            <div questao=15 class="quest questao15">
+                                <button type="button" class="questButton">
+                                    <p>15</p>
+                                </button>
                             </div>
                         </div>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="card text-center">
-                <div class="card-header">
-                    Questões
-                </div>
-                <div class="card-body dois perguntas">
-                    <div class="quest um    ">
-                        <button class="questButton questButtonActive">
-                            <p>1</p>
-                        </button>
-                    </div>
-                    <div class="quest dois">
-                        <button class="questButton">
-                            <p>2</p>
-                        </button>
-                    </div>
-                    <div class="quest tres">
-                        <button class="questButton">
-                            <p>3</p>
-                        </button>
-                    </div>
-                    <div class="quest quatro">
-                        <button class="questButton">
-                            <p>4</p>
-                        </button>
-                    </div>
-                    <div class="quest cinco">
-                        <button class="questButton">
-                            <p>5</p>
-                        </button>
-                    </div>
-                    <div class="quest seis">
-                        <button class="questButton">
-                            <p>6</p>
-                        </button>
-                    </div>
-                    <div class="quest sete">
-                        <button class="questButton">
-                            <p>7</p>
-                        </button>
-                    </div>
-                    <div class="quest oito">
-                        <button class="questButton">
-                            <p>8</p>
-                        </button>
-                    </div>
-                    <div class="quest nove">
-                        <button class="questButton">
-                            <p>9</p>
-                        </button>
-                    </div>
-                    <div class="quest dez">
-                        <button class="questButton">
-                            <p>10</p>
-                        </button>
-                    </div>
-                    <div class="quest onze">
-                        <button class="questButton">
-                            <p>11</p>
-                        </button>
-                    </div>
-                    <div class="quest doze">
-                        <button class="questButton">
-                            <p>12</p>
-                        </button>
-                    </div>
-                    <div class="quest treze">
-                        <button class="questButton">
-                            <p>13</p>
-                        </button>
-                    </div>
-                    <div class="quest catorze">
-                        <button class="questButton">
-                            <p>14</p>
-                        </button>
-                    </div>
-                    <div class="quest quinze">
-                        <button class="questButton">
-                            <p>15</p>
-                        </button>
+        
+                        <div class='button'>
+                            <input id='finalizar' type='submit' value='Finalizar' name='questionario' class='botao' disabled>
+                            <input type="hidden" id='resposta' name='resposta'>
+                        </div>
                     </div>
                 </div>
-
-                <form action='../roteiro/roteiro.php' method='post'>
-                    <div class='button'>
-                        <?php
-                        $a =  "<script> document.write(finalizar()) </script>";
-                        ?>
-                        <button id='resposta' onclick='finalizar()' type='submit' name='questionario' value="a" class='botao' type='button'>
-                            Finalizar</button>
-                    </div>
-                </form>
-
-                <div class="card-footer text-muted">
-                    Conexão Cultura
-                </div>
-            </div>
+            </form>
         </div>
     </main>
 
@@ -198,10 +195,10 @@ error_reporting(E_PARSE);
 
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.html">Home</a></h6>
-                        <p><a href="#!" class="text-reset">Perfil</a></p>
-                        <p><a href="#!" class="text-reset">Mapa</a></p>
-                        <p><a href="#!" class="text-reset">Quiz</a></p>
+                        <h6 class="text-uppercase fw-bold mb-4"><a href="../../views/home/index.php">Home</a></h6>
+                        <p><a href="#" class="text-reset">Perfil</a></p>
+                        <p><a href="#" class="text-reset">Mapa</a></p>
+                        <p><a href="../../views/quiz/quiz.php" class="text-reset">Quiz</a></p>
                     </div>
 
                     <!-- Grid column -->
@@ -215,9 +212,9 @@ error_reporting(E_PARSE);
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">Social
                         </h6>
-                        <p><i class="fab fa-facebook"></i> Facebook</a></p>
-                        <p><i class="fab fa-instagram"></i> Instagram</a></p>
-                        <p><i class="fab fa-twitter"></i> Twitter</a></p>
+                        <p><a href="#!" class="text-reset"><i class="fab fa-facebook"></i> Facebook</a></p>
+                        <p><a href="#!" class="text-reset"><i class="fab fa-instagram"></i> Instagram</a></p>
+                        <p><a href="#!" class="text-reset"><i class="fab fa-twitter"></i> Twitter</a></p>
                     </div>
                 </div>
             </div>
@@ -233,6 +230,7 @@ error_reporting(E_PARSE);
     <script src="https://kit.fontawesome.com/3eecc79a6a.js" crossorigin="anonymous"></script>
     <!-- SCRIPT -->
     <script src="../../../public/assets/js/quiz/quiz.js"></script>
+    <script src="../../../public/assets/js/main.js"></script>
 </body>
 
 </html>

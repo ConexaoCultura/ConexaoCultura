@@ -1,97 +1,99 @@
-var escolha;
-
-var a = 0;
-var b = 0;
-var c = 0;
-var d = 0;
-var e = 0;
-
-// function select(alternativa, question) {
-//   arr[question] = alternativa;
-//   console.log(arr);
-//   escolha = alternativa;
-//   document.cookie = "escolha=" + JSON.stringify(arr);
-// }
-
-// function finalizar() {
-//   let full = true;
-//   arr.forEach((item) => {
-//     if (item == null) full = false;
-//   });
-//   if (full) {
-//     arr.forEach((resposta) => {
-//       if (resposta == 0) a++;
-//       else if (resposta == 1) b++;
-//       else if (resposta == 2) c++;
-//       else if (resposta == 3) d++;
-//       else if (resposta == 4) e++;
-//     });
-//     let array = Array(a, b, c, d, e);
-//     let maior = 0;
-//     array.forEach((item) => {
-//       if (item > maior) maior = item;
-//     });
-//     console.log(array);
-//     console.log(maior);
-//     if (a == maior) document.getElementById("resposta").value = 0;
-//     else if (b == maior) document.getElementById("resposta").value = 1;
-//     else if (c == maior) document.getElementById("resposta").value = 2;
-//     else if (d == maior) document.getElementById("resposta").value = 3;
-//     else if (e == maior) document.getElementById("resposta").value = 4;
-//   } else {
-//     // document.write(
-//     //     `<div class="modal modal-sheet position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSheet">
-//     //         <div class="modal-dialog" role="document">
-//     //         <div class="modal-content rounded-6 shadow">
-//     //             <div class="modal-header border-bottom-0">
-//     //             <h5 class="modal-title">Atenção!</h5>
-//     //             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-//     //             </div>
-//     //             <div class="modal-body py-0">
-//     //             <p>É necessário responder todas as questões.</p>
-//     //             </div>
-//     //             <div class="modal-footer flex-column border-top-0">
-//     //             <button type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">Fechar</button>
-//     //             </div>
-//     //         </div>
-//     //         </div>
-//     //     </div>`)
-//     alert("deu ruim");
-//     document.getElementById("resposta").value = -1;
-//   }
-// }
-
 const alternativa = document.querySelectorAll(".alternativa");
 const div_opcao = document.querySelectorAll(".div_opcao");
 const questoes_lado = document.querySelectorAll(".quest");
 const questoes = document.querySelectorAll(".questao");
-let questao_ativa = "questao1";
 
-alternativa.forEach((element) => {
-  element.addEventListener("click", (event) => {
-    let pai = element.parentNode;
-    div_opcao.forEach((element) => {
-      element.classList.remove("checked");
-    });
-    pai.classList.toggle("checked");
-  });
-});
+var soma_a = 0;
+var soma_b = 0;
+var soma_c = 0;
+var soma_d = 0;
+var soma_e = 0;
+var questao_ativa = "questao1";
 
-questoes_lado.forEach((element) => {
-  element.addEventListener("click", (event) => {
-    questoes_lado.forEach((element) => {
-      // element.classList.remove("questao-ativa");
-      element.children[0].classList.remove("questButtonActive");
-    });
-    // element.classList.add("questao-ativa");
-    element.children[0].classList.add("questButtonActive");
-    questao_ativa = "questao" + element.children[0].children[0].textContent;
-    questoes.forEach((element) => {
-      if (element.classList.contains(questao_ativa)) {
-        element.classList.add("questao-ativa");
-      } else {
-        element.classList.remove("questao-ativa");
+var questoes_respondidas = Array(15);
+for (var i = 0; i < 15; i++) {
+  questoes_respondidas[i] = 0;
+}
+
+function navegar() {
+  alternativa.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      let pai = element.parentNode.parentNode;
+      let filhos = pai.children;
+
+      for (var i = 0; i < 5; i++) {
+        filhos[i].children[0].classList.remove("checked");
       }
+      element.classList.add("checked");
     });
   });
-});
+
+  questoes_lado.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      questoes_lado.forEach((element) => {
+        element.children[0].classList.remove("questButtonActive");
+      });
+      element.children[0].classList.add("questButtonActive");
+      questao_ativa = "questao" + element.children[0].children[0].textContent;
+      questoes.forEach((element) => {
+        if (element.classList.contains(questao_ativa)) {
+          element.classList.add("questao-ativa");
+        } else {
+          element.classList.remove("questao-ativa");
+        }
+      });
+    });
+  });
+}
+
+function armazenarRespostas() {
+  let alternativas = document.querySelectorAll(".alternativa");
+  alternativas.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      let alternativa_escolhida = event.target.parentNode.children[1].value;
+      let id_questao = event.target.getAttribute("id_questao");
+      questoes_respondidas[id_questao - 1] = alternativa_escolhida;
+
+      //verificar se o array está todo preenchido
+      // se o array estiver todo preenchida, habilitar o botão
+      if (questoes_respondidas.indexOf(0) == -1) {
+        document.getElementById("finalizar").removeAttribute("disabled");
+      }
+    })
+  })
+}
+
+function finalizar() {
+  questoes_respondidas.forEach((resposta) => {
+    if (resposta == "A")
+      soma_a++;
+    else
+      if (resposta == "B") {
+        soma_b++;
+      }
+      else
+        if (resposta == "C")
+          soma_c++;
+        else
+          if (resposta == "D")
+            soma_d++;
+          else
+            if (resposta == "E")
+              soma_e++;
+  })
+
+  let array = Array(soma_a, soma_b, soma_c, soma_d, soma_e);
+  let maior = Math.max(...array);
+
+  console.log(maior)
+
+  if (soma_a == maior) document.getElementById("resposta").value = "1";
+  else if (soma_b == maior) document.getElementById("resposta").value = "2";
+  else if (soma_c == maior) document.getElementById("resposta").value = "3";
+  else if (soma_d == maior) document.getElementById("resposta").value = "4";
+  else if (soma_e == maior) document.getElementById("resposta").value = "5";
+}
+navegar();
+armazenarRespostas();
+
+document.getElementById('finalizar').addEventListener("click", finalizar);
